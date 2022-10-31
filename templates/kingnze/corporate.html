@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+Corporate
+{% endblock title %}
+
+{% block content %}
+
+<!-- inner banner -->
+<section class="inner-banner">
+  <div class="king-breadcrumb py-5" >
+      <div class="container py-xl-5 py-md-4 mt-5">
+          <h4 class="inner-text-title font-weight-bold mb-sm-2">About Us</h4>
+          <ul class="breadcrumbs-custom-path">
+            <li><a href="{% url 'services' %}">Services</a></li>
+              <li class="active"><span class="fa fa-chevron-right mx-2" aria-hidden="true"></span>Corporate</li>
+          </ul>
+      </div>
+  </div>
+</section>
+<!-- //inner banner -->
+
+<section >
+  <div class="container py-3">
+  <div class="row text-center">
+    <div class="col-md-12 text-center">
+      <!-- <br> -->
+      <br>
+      <h3>we build</h3>
+      <br>
+      <h1 style="font-size: 3rem; font-family: geneva; font-weight: 1000; color: #ff5e29;">Corporate</h1>
+      <br>
+      <br>
+     <h4>that serve as an automation and marketing system for businesses.</h4>
+    </div>
+  </div>
+</div>
+</section>
+<section >
+  <div class="container py-5">
+      <div class="row">
+          <div class="col-md-6">
+              <img style="width: 100%; height: 100%;" src="{% static 'images/corporate.jpg' %}" alt="Food Nigeria">
+          </div>
+          <div class="col-md-6">
+              <br>
+              <h1>What you should know.</h1>
+              <br>
+              <p>A Corporate website is a website that officially represents a brand on the Internet. Beyond a mere testimonial presence, a corporate website represents a business opportunity if the option is to be provided to make purchases, and ideally should be made user-friendly. mobile responsive and optimized for search and conversions
+
+              This requires special care. It is essential that all contents comply with the company’s principles and facilitate its global focus by being backed by data and research, fully integrated within the company structure and its general strategy.
+              
+              In today’s world, a corporate website may not be sufficient. Companies have increased their online presence by generating profiles on social media platforms.</p>
+              </div>
+             
+              
+      </div>
+  </div>
+<br>
+</section>
+
+<div class="container">
+  <marquee style="background-color: #ffc845;  color: black; height: 2rem; font-size: large; font-weight: 500;" behavior="" direction="">We are a solution driven team passionate about your business success, executing every project with Strategy, Tenacity and Excellent delivery in mind.</marquee>
+</div>
+<br>
+{% endblock content %}
+
+
+

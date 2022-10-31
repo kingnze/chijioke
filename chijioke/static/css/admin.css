@@ -1,0 +1,45 @@
+#header {
+    height: 58px;
+    background: black;
+    color: white;
+}
+
+#branding h1 {
+    color: white;
+    font-weight: bold;
+    /* margin-bottom: 5px; */
+}
+
+a:link,
+a:visited {
+    color: #10284e;
+}
+
+div.breadcrumbs {
+    background: black;
+    height: 1.3rem;
+    color: white;
+}
+
+.module h2, .module caption, .inline-group h2 {
+    background: black;
+    height: 25px;
+    margin-top: 7px;
+}
+
+.button, input[type=submit], input[type=button], .submit-row input, a.button {
+    background: black;
+    color: white;
+}
+
+.button.default, input[type=submit].default, .submit-row input.default {
+    background: black;
+    color: white;
+}
+
+.module h2, .module caption, .inline-group h2 {
+    background: black;
+    height: 9px;
+    margin-top: -10px;
+  }
+

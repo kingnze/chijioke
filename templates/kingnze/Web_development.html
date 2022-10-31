@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+Web Development
+{% endblock title %}
+
+{% block content %}
+
+<!-- inner banner -->
+<section class="inner-banner">
+  <div class="king-breadcrumb py-5" >
+      <div class="container py-xl-5 py-md-4 mt-5">
+          <h4 class="inner-text-title font-weight-bold mb-sm-2">About Us</h4>
+          <ul class="breadcrumbs-custom-path">
+            <li><a href="{% url 'services' %}">Services</a></li>
+              <li class="active"><span class="fa fa-chevron-right mx-2" aria-hidden="true"></span>Web Development</li>
+          </ul>
+      </div>
+  </div>
+</section>
+<!-- //inner banner -->
+
+<section >
+  <div class="container py-3">
+  <div class="row text-center">
+    <div class="col-md-12 text-center">
+      <!-- <br> -->
+      <br>
+      <h3>we build</h3>
+      <br>
+      <h1 style="font-size: 5rem; font-family: geneva; font-weight: 1000; color: #ff5e29;">Web Development</h1>
+      <br>
+      <br>
+     <h4>that make you stand-out.</h4>
+    </div>
+  </div>
+</div>
+</section>
+<section >
+  <div class="container py-5">
+      <div class="row">
+          <div class="col-md-6">
+              <img style="width: 100%; height: 100%;" src="{% static 'images/portfolio.jpg' %}" alt="Food Nigeria">
+          </div>
+          <div class="col-md-6">
+              <br>
+              <h1>What you should know.</h1>
+              <br>
+              <p>Web development is the work involved in developing a Web site for the Internet or an intranet. Web development can range from developing a simple single static page of plain text to complex web applications, electronic businesses, and social network services.</p>
+              </div>
+             
+              
+      </div>
+  </div>
+<br>
+</section>
+<div class="container">
+  <marquee style="background-color: #ffc845;  color: black; height: 2rem; font-size: large; font-weight: 500;" behavior="" direction="">We are a solution driven team passionate about your business success, executing every project with Strategy, Tenacity and Excellent delivery in mind.</marquee>
+</div>
+<br>
+{% endblock content %}
+
+
+

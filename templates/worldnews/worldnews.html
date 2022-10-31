@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+
+{% block title %}
+Worldnews
+{% endblock title %}
+
+{% block content %}
+
+
+<!-- inner banner -->
+<section class="inner-banner">
+  <div class="king-breadcrumb py-5">
+      <div class="container py-xl-5 py-md-4 mt-5">
+          <h4 class="inner-text-title font-weight-bold mb-sm-2">About Us</h4>
+          <ul class="breadcrumbs-custom-path">
+            <li><a href="{% url 'index' %}">Home</a></li>
+              <li class="active"><span class="fa fa-chevron-right mx-2" aria-hidden="true"></span>Worldnews</li>
+          </ul>
+      </div>
+  </div>
+</section>
+<!-- //inner banner -->
+<br>
+<br>
+
+ <!-- services section -->
+ <div class="service-section py-5">
+    <div class="container py-md-5 py-4">
+        <div class="row align-items-center mb-5">
+            <div class="col-md-6 section-heading">
+                <h5 class="small-title-2">Check out</h5>
+                <h3 class="title-style-2">
+                    Our Leatest World News</h3>
+            </div>
+            <div class="col-md-6 section-heading mt-md-0 mt-2">
+                <!-- <p>
+                    Sed ut perspiciatis unde omnis iste natus error sit accusantium doloremque,
+                    eaque ipsa quae ab illo inventore.Sed ut perspiciatis unde omnis iste natus error sit.
+                </p> -->
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            {% if world %}
+            {% for item in world %}
+            <div class="col-lg-3 col-md-4 item">
+                <div class="card" style="border: none; box-shadow: none !important; padding: 0px !important;">
+                    <div class="card-header p-0 position-relative border-0">
+                        <a href="{% url 'worldnewsdetail' item.slug %}">
+                            <!-- <img  class="d-block img-responsive" src="{{item.leadimg.url}}" alt="card-image"> -->
+                            <img style="height: 10.5rem;" src="{{item.leadimg.url}}" class="card-img-top leadimg" alt="{{item.title}}">
+                        </a>
+                    </div>
+                    <div class="card-body service-details">
+                        <!-- <span class="label-style label-style-3" >{{ item.date_posted }}</span> -->
+                        <a href="{% url 'worldnewsdetail' item.slug %}"  class="service-heading">{{ item.title  }}</a>
+                        <!-- <br>
+                            <a href="{% url 'worldnewsdetail' item.slug %}" class="btn btn-success read-m">Read More</a> -->
+                    </div>
+                </div>
+                <br>
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+              {% if world.has_other_pages %}
+                <ul class="pagination">
+                  {% if world.has_previous %}
+                      <li class="page-item">
+                        <a href="?page={{world.previous_page_number}}" class="page-link">&laquo;
+                        </a>
+                      </li>
+                      {% else %}
+                      <li class="page-link disabled">
+                        <a class="page-link">&laquo;</a>
+                      </li>
+                  {% endif %}
+                  {% for i in world.paginator.page_range %}
+                    {% if world.number == i %}
+                      <li class="page-item active">
+                        <a class="page-link">{{i}}</a>
+                      </li>
+                   {% else %}
+                   <li class="page-item">
+                     <a href="?page={{i}}" class="page-link">{{i}}</a>
+                   </li>
+                 {% endif %}
+                {% endfor %} 
+                {% if world.has_next %}
+                    <li class="page-item">
+                      <a href="?page={{world.next_page_number}}" class="page-link">&raquo;
+                      </a>
+                    </li>
+                  {% else %}
+                    <li class="page-link disabled">
+                      <a class="page-link">&raquo;</a>
+                    </li>
+                {% endif %}
+              </ul>                   
+            {% endif %}
+            </div>
+          </div>
+    </div>
+</div>
+<!-- //services section -->
+<br>
+<br>
+
+
+
+
+
+{% endblock content %}

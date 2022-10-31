@@ -1,0 +1,196 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+
+{% block title %}
+{{ post.title  }}
+{% endblock title %}
+
+{% block content %}
+
+<!-- inner banner -->
+<section class="inner-banner">
+  <div class="king-breadcrumb py-5" >
+      <div class="container py-xl-5 py-md-4 mt-5">
+          <h4 class="inner-text-title font-weight-bold mb-sm-2">Local News</h4>
+          <ul class="breadcrumbs-custom-path">
+            <li><a href="{% url 'localnews' %}">Localnews</a></li>
+              <li class="active"><span class="fa fa-chevron-right mx-2" aria-hidden="true"></span>{{ post.title  }}</li>
+          </ul>
+      </div>
+  </div>
+</section>
+<!-- //inner banner -->
+<br>
+<br>
+
+
+<section class="about-section py-5">
+	<div class="container py-md-5 py-4">
+		
+		
+		<div class="row mt-sm-5 mt-4">
+			{% if post %}
+				<div class="col-lg-8 mt-lg-0 mt-4 ">
+					{% if post.leadimg %}
+					<img src="{{post.leadimg.url}}" alt="" class="img-fluid radius-image py-3">
+					{% endif %}
+					<h3 class="title-style mb-4">{{ post.title}}</h3>
+					<p>{{post.body | safe}}</p>
+				</div>     
+			{% endif %}
+
+			<!--right-->
+			<aside class="col-lg-4 mt-3 agileits-kings-right-blog-con text-right">
+				<div class="right-blog-info text-left">
+					<div class="tech-btm">
+						<img src="{{post.leadimg.url}}" class="img-fluid" alt="">
+						<h5  >{{ post.title}}</h5>
+					</div>
+
+					<div style="font-weight: bold; font-family: 'Courier New', Courier, monospace;" class="tech-btm">
+						<h4>Categories</h4>
+						<ul class="service-list">
+							<li class="list-group-item d-flex justify-content-between align-items-center">
+								<a href="{% url 'worldnews' %}">World News</a>
+								<span class="badge badge-primary badge-pill">=></span>
+							  </li>
+							  <li class="list-group-item d-flex justify-content-between align-items-center">
+								  <a href="{% url 'africanews' %}">Africa News</a>
+								  <span class="badge badge-primary badge-pill">=></span>
+								</li>
+							  <li class="list-group-item d-flex justify-content-between align-items-center">
+								  <a href="{% url 'localnews' %}">Local News</a>
+								<span class="badge badge-primary badge-pill">=></span>
+							  </li>
+							  <li class="list-group-item d-flex justify-content-between align-items-center">
+								  <a href="{% url 'sportsnews' %}">Sport News</a>
+								<span class="badge badge-primary badge-pill">=></span>
+							  </li>
+							  <li class="list-group-item d-flex justify-content-between align-items-center">
+								  <a href="{% url 'entertainment' %}">Entertainment News</a>
+								<span class="badge badge-primary badge-pill">=></span>
+							  </li>
+							  </ul>
+					</div>
+					<div class="tech-btm">
+						<h4>Recent Post</h4>
+
+						<div class="blog-grids row mb-3">
+							{% if world %}
+							{% for item in world %}
+							<div class="col-md-5 blog-grid-left">
+								<a href="{% url 'worldnewsdetail' item.slug %}">
+									<img style="border: none;" src="{{item.leadimg.url}}" class="img-fluid" alt="">
+								</a>
+							</div>
+							<div class="col-md-7 blog-grid-right">
+
+								<h5>
+									<a href="{% url 'worldnewsdetail' item.slug %}">{{item.title}}</a>
+								</h5>
+								<div class="sub-meta">
+									<span>
+										<i class="far fa-clock"></i> {{ item.date_posted }}</span>
+								</div>
+							</div>
+							{% endfor %}
+							{% endif %}
+
+							{% if africa %}
+							{% for item in africa %}
+							<div class="col-md-5 blog-grid-left">
+								<a href="{% url 'africanewsdetail' item.slug %}">
+									<img style="border: none;" src="{{item.leadimg.url}}" class="img-fluid" alt="">
+								</a>
+							</div>
+							<div class="col-md-7 blog-grid-right">
+
+								<h5>
+									<a href="{% url 'africanewsdetail' item.slug %}">{{item.title}}</a>
+								</h5>
+								<div class="sub-meta">
+									<span>
+										<i class="far fa-clock"></i> {{ item.date_posted }}</span>
+								</div>
+							</div>
+							{% endfor %}
+							{% endif %}
+
+							{% if local %}
+							{% for item in local %}
+							<div class="col-md-5 blog-grid-left">
+								<a href="{% url 'localnewsdetail' item.slug %}">
+									<img style="border: none;" src="{{item.leadimg.url}}" class="img-fluid" alt="">
+								</a>
+							</div>
+							<div class="col-md-7 blog-grid-right">
+
+								<h5>
+									<a href="{% url 'localnewsdetail' item.slug %}">{{item.title}}</a>
+								</h5>
+								<div class="sub-meta">
+									<span>
+										<i class="far fa-clock"></i> {{ item.date_posted }}</span>
+								</div>
+							</div>
+							{% endfor %}
+							{% endif %}
+
+							{% if sports %}
+							{% for item in sports %}
+							<div class="col-md-5 blog-grid-left">
+								<a href="{% url 'sportsnewsdetail' item.slug %}">
+									<img style="border: none;" src="{{item.leadimg.url}}" class="img-fluid" alt="">
+								</a>
+							</div>
+							<div class="col-md-7 blog-grid-right">
+
+								<h5>
+									<a href="{% url 'sportsnewsdetail' item.slug %}">{{item.title}}</a>
+								</h5>
+								<div class="sub-meta">
+									<span>
+										<i class="far fa-clock"></i> {{ item.date_posted }}</span>
+								</div>
+							</div>
+							{% endfor %}
+							{% endif %}
+
+							{% if enternews %}
+							{% for item in enternews %}
+							<div class="col-md-5 blog-grid-left">
+								<a href="{% url 'entertainmentdetail' item.slug %}">
+									<img style="border: none;" src="{{item.leadimg.url}}" class="img-fluid" alt="">
+								</a>
+							</div>
+							<div class="col-md-7 blog-grid-right">
+
+								<h5>
+									<a href="{% url 'entertainmentdetail' item.slug %}">{{item.title}}</a>
+								</h5>
+								<div class="sub-meta">
+									<span>
+										<i class="far fa-clock"></i> {{ item.date_posted }}</span>
+								</div>
+							</div>
+							{% endfor %}
+							{% endif %}
+						</div>
+					</div>
+				</div>
+
+			</aside>
+		</div>   
+	</div>
+</section>
+
+<br>
+<br>
+
+
+{% endblock content %}
+
+
+

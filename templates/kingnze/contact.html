@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+ Contact
+{% endblock title %}
+
+{% block content %}
+
+
+<!-- inner banner -->
+<section class="inner-banner">
+    <div class="king-breadcrumb py-5" >
+        <div class="container py-xl-5 py-md-4 mt-5">
+            <h4 class="inner-text-title font-weight-bold mb-sm-2">Contact Us</h4>
+            <ul class="breadcrumbs-custom-path">
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li class="active"><span class="fa fa-chevron-right mx-2" aria-hidden="true"></span>Contact Us</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- //inner banner -->
+
+<!-- contact -->
+<section class="king-contact-info-main py-5" id="contact">
+    <div class="container py-md-5 py-4">
+        <div class="row align-items-center mb-5">
+            <div class="col-md-6 section-heading">
+                <h5 class="small-title-2">Write Message</h5>
+                <h3 class="title-style-2">Get in Touch</h3>
+            </div>
+            <div class="col-md-6 section-heading mt-md-0 mt-2">
+                <p>
+                    We are here just to satisfy you, lets know what you have in mind about an intended project thank you.
+                </p>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <!-- <div class="col-lg-4 col-md-6">
+                <div class="contact-address p-4">
+                    <div class="contact-icon d-flex align-items-center">
+                        <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                        <div class="ml-3">
+                            <h5 class="contact-text">Visit Us:</h5>
+                            <p>St Lawrence Catholic Church</p>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <div class="col-lg-4 col-md-6 mt-md-0 mt-4">
+                <div class="contact-address p-4">
+                    <div class="contact-icon d-flex align-items-center">
+                        <i class="fas fa-phone-alt" aria-hidden="true"></i>
+                        <div class="ml-3">
+                            <h5 class="contact-text">Call Us:</h5>
+                            <a href="tel:+234-9158-6799-09">+234-9158-6799-09</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mt-lg-0 mt-4">
+                <div class="contact-address p-4">
+                    <div class="contact-icon d-flex align-items-center">
+                        <i class="fas fa-envelope-open-text" aria-hidden="true"></i>
+                        <div class="ml-3">
+                            <h5 class="contact-text">Mail Us:</h5>
+                            <a href="mailto:kingnze1@gmail.com">kingnze1@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+       
+        <div class="contact-w3pvt-form mt-5 pt-lg-4">
+            {% if messages %}
+                {% for item in messages %}
+                <p class="alert alert-success"> {{item}} </p>
+                {% endfor %}
+                {% endif %}
+            <form method="POST" class="kingayouts-contact-fm">
+                {% csrf_token %}
+                <div class="row main-cont-sec">
+                    <div class="col-md-6 left-cont-contact">
+                        
+                        <div class="form-group mb-3">
+                            <!-- <label for="kingName">Full Name</label> -->
+                            <input class="form-control" type="text" name="fullname" id="kingName" placeholder="Full Name"
+                                required="">
+                        </div>
+                        <div class="form-group mb-3">
+                            <!-- <label for="kingSender">Your Email</label> -->
+                            <input class="form-control" type="text" name="email" id="kingSender" placeholder="Your Email"
+                                required="">
+                        </div>
+                        <div class="form-group mb-3">
+                            <!-- <label for="kingSubject">Phone Number</label> -->
+                            <input class="form-control" type="text" name="phone" id="kingSubject" placeholder="Phone Number" required="">
+                        </div>
+                    </div>
+                    <div class="col-md-6 right-cont-contact">
+                        <div class="form-group">
+                            <!-- <label for="kingSubject">Write Message</label> -->
+                            <textarea  class="form-control" name="message" id="kingMessage" placeholder="Write Message"
+                                required=""></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group-2 mt-3 text-right">
+                    <button type="submit" class="btn btn-style">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- <div class="map-contact">
+    <iframe class="map-kingayouts"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3390.710556214972!2d3.2675934142667376!3d6.57578302437889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b91a3e759f6cb%3A0x1f44edd5d43abda9!2sSt.%20Lawrence%20Catholic%20Church!5e1!3m2!1sen!2sng!4v1656667407818!5m2!1sen!2sng"
+        width="100%" height="500" frameborder="0" style="border: 0px;" allowfullscreen=""></iframe>
+</div> -->
+<!-- //contact -->
+<br>
+<div class="container">
+    <marquee style="background-color: #ffc845;  color: black; height: 2rem; font-size: large; font-weight: 500;" behavior="" direction="">We are a solution driven team passionate about your business success, executing every project with Strategy, Tenacity and Excellent delivery in mind.</marquee>
+</div>
+<br>
+
+
+{% endblock content %}

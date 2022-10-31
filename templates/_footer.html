@@ -1,0 +1,286 @@
+<!-- <div class="container">
+    <marquee style="background-color: #ffc845; border-radius: 5px; color: black; height: 1.5rem; font-style: unset; font-size: 1rem; font-weight: 500;" behavior="" direction="">We are a solution driven team passionate about your business success, executing every project with Strategy, Tenacity and Excellent delivery in mind.</marquee>
+</div>
+<br> -->
+
+
+<!-- footer -->
+<section class="footer-29-main">
+    <div class="footer-29">
+        <div class="container">
+            <div class="d-grid grid-col-4 footer-top-29">
+                <div class="footer-list-29 footer-1">
+                    <h6 class="footer-title-29">Contact Us</h6>
+                    <ul>
+                      <!-- <li><p><span class="fa fa-map-marker"></span>St Lawrence Catholic Church Isheri Olofin.</p></li> -->
+                      <li><a href="tel:+234-8132-9747-79"><span class="fa fa-phone"></span>+234-9158-6799-09</a></li>
+                      <li><a href="mailto:kingnze1@gmail.com" class="mail"><span class="fa fa-envelope-open"></span>kingnze1@gmail.com</a></li>
+                  </ul>
+                    <div class="main-social-footer-29">
+                        <a href="#facebook" class="facebook"><span class="fab fa-facebook-f"></span></a>
+                        <a href="#twitter" class="twitter"><span class="fab fa-twitter"></span></a>
+                        <a href="#instagram" class="instagram"><span class="fab fa-instagram"></span></a>
+                        <a href="#google-plus" class="google-plus"><span class="fab fa-google-plus-g"></span></a>
+                        <a href="#linkedin" class="linkedin"><span class="fab fa-linkedin"></span></a>
+                    </div>
+                </div>
+                <div class="footer-list-29 footer-2">
+                  <ul>
+                      <h6 class="footer-title-29">Featured Links</h6>
+                      <li><a href="{% url 'worldnews' %}">World</a></li>
+                      <li><a href="{% url 'africanews' %}">Afica</a></li>
+                      <li><a href="{% url 'localnews' %}">Local</a></li>
+                      <li><a href="{% url 'sportsnews' %}">Sports</a></li>
+                      <li><a href="{% url 'entertainment' %}">Entertainment</a></li>
+                  </ul>
+                </div>
+                <div class="footer-list-29 footer-3">
+                   
+                    <h6 class="footer-title-29">Newsletter </h6>
+                    <p class="mb-3">Get in your inbox the latest News and</p>
+                    {% if messages %}
+                {% for item in messages %}
+                <p class="alert alert-success"> {{item}} </p>
+                {% endfor %}
+                {% endif %}
+            <form action="#" class="subscribe" method="post">
+                {% csrf_token %}
+              <input type="email" name="email" placeholder="Email" required="">
+              <button><span class="fa fa-envelope"></span></button>
+            </form>
+            <p>Subscribe and get our weekly newsletter</p>
+            <p>We'll never share your email address</p>
+          
+                </div>
+                <div class="footer-list-29 footer-4">
+                  <ul>
+                      <h6 class="footer-title-29">Quick Links</h6>
+                      <li><a href="{% url 'index' %}">Home</a></li>
+                      <li><a href="{% url 'about' %}">About</a></li>
+                      <li><a href="{% url 'services' %}">Services</a></li>
+                      <!-- <li><a href="#"> Blog</a></li> -->
+                      <li><a href="{% url 'contact' %}">Contact</a></li>
+                  </ul>
+                </div>
+            </div>
+            <div class="d-grid grid-col-2 bottom-copies">
+                <p class="copy-footer-29">Copyright © 2022 Kingnze. All rights reserved </a></p>
+                 <ul class="list-btm-29">
+                        <!-- <li><a href="#link">Privacy policy</a></li>
+                        <li><a href="#link">Terms of service</a></li> -->
+                        
+                    </ul>
+            </div>
+        </div>
+    </div>
+  <!-- move top -->
+  <!-- move top -->
+  <button onclick="topFunction()" id="movetop" title="Go to top">
+    <span class="fas fa-level-up-alt" aria-hidden="true"></span>
+</button>
+<script>
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("movetop").style.display = "block";
+        } else {
+            document.getElementById("movetop").style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
+<!-- //move top -->
+  <!-- /move top -->
+</section>
+
+    <!-- common jquery plugin -->
+    <script src="static/js/jquery-3.3.1.min.js"></script>
+    <!-- //common jquery plugin -->
+
+    <!-- owl carousel -->
+    <script src="static/js/owl.carousel.js"></script>
+    <!-- script for tesimonials carousel slider -->
+    <script>
+        $(document).ready(function () {
+            $("#owl-demo2").owlCarousel({
+                loop: true,
+                nav: false,
+                margin: 50,
+                responsiveClass: true,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                autoplaySpeed: 1000,
+                autoplayHoverPause: true,
+                responsive: {
+                    0: {
+                        items: 1,
+                        nav: false
+                    },
+                    736: {
+                        items: 1,
+                        nav: false
+                    },
+                    991: {
+                        items: 2,
+                        margin: 30,
+                        nav: false
+                    },
+                    1080: {
+                        items: 3,
+                        nav: false
+                    }
+                }
+            })
+        })
+    </script>
+  <!-- //script for tesimonials carousel slider -->
+  <!-- stats number counter-->
+  <script src="static/js/jquery.waypoints.min.js"></script>
+  <script src="static/js/jquery.countup.js"></script>
+  <script>
+    $('.counter').countUp();
+  </script>
+  <!-- //stats number counter -->
+  <!-- disable body scroll which navbar is in active -->
+  <script>
+    $(function () {
+      $('.navbar-toggler').click(function () {
+        $('body').toggleClass('noscroll');
+      })
+    });
+  </script>
+  <!-- disable body scroll which navbar is in active -->
+    </script>
+    <!-- //script for tesimonials carousel slider -->
+    <!-- owl carousel -->
+
+    <!-- magnific popup -->
+    <script src="static/js/jquery.magnific-popup.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.popup-with-zoom-anim').magnificPopup({
+                type: 'inline',
+
+                fixedContentPos: false,
+                fixedBgPos: true,
+
+                overflowY: 'auto',
+
+                closeBtnInside: true,
+                preloader: false,
+
+                midClick: true,
+                removalDelay: 300,
+                mainClass: 'my-mfp-zoom-in'
+            });
+
+            $('.popup-with-move-anim').magnificPopup({
+                type: 'inline',
+
+                fixedContentPos: false,
+                fixedBgPos: true,
+
+                overflowY: 'auto',
+
+                closeBtnInside: true,
+                preloader: false,
+
+                midClick: true,
+                removalDelay: 300,
+                mainClass: 'my-mfp-slide-bottom'
+            });
+        });
+    </script>
+    <!-- //magnific popup -->
+
+    <!-- theme switch js (light and dark)-->
+    <script src="static/js/theme-change.js"></script>
+    <script>
+        function autoType(elementClass, typingSpeed) {
+            var thhis = $(elementClass);
+            thhis.css({
+                "position": "relative",
+                "display": "inline-block"
+            });
+            thhis.prepend('<div class="cursor" style="right: initial; left:0;"></div>');
+            thhis = thhis.find(".text-js");
+            var text = thhis.text().trim().split('');
+            var amntOfChars = text.length;
+            var newString = "";
+            thhis.text("|");
+            setTimeout(function () {
+                thhis.css("opacity", 1);
+                thhis.prev().removeAttr("style");
+                thhis.text("");
+                for (var i = 0; i < amntOfChars; i++) {
+                    (function (i, char) {
+                        setTimeout(function () {
+                            newString += char;
+                            thhis.text(newString);
+                        }, i * typingSpeed);
+                    })(i + 1, text[i]);
+                }
+            }, 1500);
+        }
+
+        $(document).ready(function () {
+            // Now to start autoTyping just call the autoType function with the 
+            // class of outer div
+            // The second paramter is the speed between each letter is typed.   
+            autoType(".type-js", 200);
+        });
+    </script>
+    <!-- //theme switch js (light and dark)-->
+
+    <!-- MENU-JS -->
+    <script>
+        $(window).on("scroll", function () {
+            var scroll = $(window).scrollTop();
+
+            if (scroll >= 80) {
+                $("#site-header").addClass("nav-fixed");
+            } else {
+                $("#site-header").removeClass("nav-fixed");
+            }
+        });
+
+        //Main navigation Active Class Add Remove
+        $(".navbar-toggler").on("click", function () {
+            $("header").toggleClass("active");
+        });
+        $(document).on("ready", function () {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+            $(window).on("resize", function () {
+                if ($(window).width() > 991) {
+                    $("header").removeClass("active");
+                }
+            });
+        });
+    </script>
+    <!-- //MENU-JS -->
+
+    <!-- disable body scroll which navbar is in active -->
+    <script>
+        $(function () {
+            $('.navbar-toggler').click(function () {
+                $('body').toggleClass('noscroll');
+            })
+        });
+    </script>
+    <!-- //disable body scroll which navbar is in active -->
+
+    <!--bootstrap-->
+    <script src="static/js/bootstrap.min.js"></script>
+    <!-- //bootstrap-->
+    <!-- //Js scripts -->

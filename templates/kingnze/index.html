@@ -1,0 +1,757 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+  Home
+{% endblock title %}
+
+{% block content %}
+  
+
+    <!-- banner section -->
+    <section class="banner-19">
+        <div class="banner-layer">
+            <video autoplay muted loop id="myVideo">
+                <source src="{% static 'videos/codinglang.mp4' %}" type="video/mp4">
+                Your browser does not support video.
+            </video>
+            <div class="main-content-top">
+                <div class="container">
+                    <div class="main-content">
+                        <!-- if logo is image enable this   
+                        <a class="logo" href="index.html">
+                            <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
+                        </a> -->
+                        <h4 class="mb-sm-4 mb-3 title"><br><span class="type-js"><span
+                            class="text-js">We Execute Your Ideas From Start to Finish...</span></span></h4>
+                        <!-- <h4>We Execute Your Ideas From Start to Finish </h4> -->
+                        <p class="mt-3">We are a solution driven team passionate about your business success, executing every project with Strategy, Tenacity and Excellent delivery in mind.</p>
+                        <a href="{% url 'services' %}" class="btn btn-style mt-md-5 mt-4">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- //banner section -->
+
+
+    <section style=" margin-top: -1rem;">
+        <div class="container py-0">
+        <div class="row text-center">
+          <div class="col-md-12 text-center">
+            <br>
+            <br>
+            <h6 style="color: rgb(90, 86, 86);;">SEEING OUR CLIENTS WIN IS WHAT GETS US EXCITED</h6>
+            <br>
+            <h3 style="font-size: 2rem; font-family: geneva; font-weight: 1000; color: #ffc845;">Digital Services </h3>
+            <br>
+            <p>
+              We are a solution driven team passionate about your business success, executing every project with Strategy, Tenacity and Excellent delivery in mind.
+            </p>
+          </div>
+        </div>
+      </div>
+      </section>
+
+
+    <!-- banner bottom section -->
+    <section class="king-aboutblock py-5">
+        <div class="container py-md-5 py-sm-4">
+            <div class="row">
+                <div class="col-lg-6 left-wthree-img mb-lg-0 mb-4">
+                    <img class="img-fluid img-responsive" src="{% static 'images/pic-3.jpg' %}" alt=" ">
+                </div>
+                <div class="col-lg-6 about-right-faq align-self pl-lg-5">
+                    <h3 class="title-style">We are fueled by our clients’ success!</h3>
+                    <p class="mt-2">We get it... you want to stand out in a noisy marketplace. You want your business to be perceived the right way. We have got you coverd.</p>
+                    <div class="mt-4 pt-md-2">
+                        <div class="about-info-m d-flex">
+                            <div class="icon-style-ab mr-4">
+                                <i class="fas fa-donate"></i>
+                            </div>
+                            <div class="about-detail">
+                                <h4>Extra benefit through digital marketing</h4>
+                                <p>Speak to an expert and hear for yourself how digital marketing can help your business grow and succeed.</p>
+                            </div>
+                        </div>
+                        <div class="about-info-m d-flex mt-4">
+                            <div class="icon-style-ab mr-4">
+                                <i class="fab fa-asymmetrik"></i>
+                            </div>
+                            <div class="about-detail">
+                                <h4>Expand profit through digital marketing</h4>
+                                <p>We will understand your business and goals, review your existing activity, and share strategies and tips to help you get better results</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //banner bottom section -->
+
+    <!-- services section -->
+    <div class="service-section py-5">
+        <div class="container py-md-5 py-4">
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6 section-heading">
+                    <h5 class="small-title-2">Web Services</h5>
+                    <h3 class="title-style-2">
+                        Our Best Services</h3>
+                </div>
+                <div class="col-md-6 section-heading mt-md-0 mt-2">
+                    <p>
+                        We have seen first-hand how strategy, web design and digital marketing can help a business grow and succeed – and do this at scale. Now, it’s our mission to use every skill, knowledge and experience we have to help as many businesses as possible.
+                    </p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-md-6 item" >
+                    <div class="card" style="border: none; box-shadow: none !important; padding: 0px !important;">
+                        <div class="card-header p-0 position-relative border-0">
+                            <!-- <a href="{% url 'services' %}">
+                                <div class="inner">
+                                    <img class="d-block img-responsive" src="{% static 'images/lagos1.jpg' %}" alt="card-image">
+
+                                </div>
+                            </a> -->
+                            <a href="{% url 'services' %}">
+                                <div class="inner">
+                                    <img class="d-block img-responsive" src="{% static 'images/lagos1.jpg' %}" alt="card-image">
+
+                                </div>
+                            </a>
+                        </div>
+                        <div class="card-body service-details">
+                            <span class="label-style">Work</span>
+                            <a href="{% url 'services' %}" class="service-heading">Website Designing</a>
+                            <p>Web development is the work involved in developing a Web site for the Internet or an intranet. Web development can range from developing a simple single...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mt-md-0 mt-4">
+                    <div class="card" style="border: none; box-shadow: none !important; padding: 0px !important;">
+                        <div class="card-header p-0 position-relative border-0">
+                            <a href="{% url 'services' %}">
+                                <div class="inner">
+                                    <img style="height: 15.5rem;" class="d-block img-responsive" src="{% static 'images/lagos2.jpg' %}" alt="card-image">
+
+                                </div>
+                            </a>
+                        </div>
+                        <div class="card-body service-details">
+                            <span class="label-style label-style-2">Business</span>
+                            <a href="{% url 'services' %}" class="service-heading">Ecommerce Web Applications</a>
+                            <p>An E-commerce website allows people to buy and sell physical goods, services, and digital products over the internet rather than at a brick-and-mortar location...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mt-lg-0 mt-4">
+                    <div class="card" style="border: none; box-shadow: none !important; padding: 0px !important;">
+                        <div class="card-header p-0 position-relative border-0">
+                            <a href="{% url 'corporate' %}">
+                                <div class="inner">
+                                    <img style="height: 15.5rem;" class="d-block img-responsive" src="{% static 'images/lagos5.jpg' %}" alt="card-image">
+
+                                </div>
+                            </a>
+                        </div>
+                        <div class="card-body service-details">
+                            <span class="label-style label-style-3">Corporate</span>
+                            <a href="{% url 'corporate' %}" class="service-heading">Digital Marketing</a>
+                            <p>A Corporate website is a website that officially represents a brand on the Internet. Beyond a mere testimonial presence...
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //services section -->
+
+
+
+<section>
+    <!--/king-banner-content-->
+  <div class="king-banner-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 bannerhny-info pr-lg-5">
+          <h3 class="mb-4">Expect Great Things from <span style=" color: #ffc845;" class="w3sub-color">
+              Your Costumer</span></h3>
+          <div class="separatorhny"></div>
+          <p class="pr-lg-5 mt-md-4 mt-3">We provide the best IT support to businesses to ensure that their service is running efficiently.
+          </p>
+          <a class="btn btn-style mt-sm-5 mt-4 mr-2" href="{% url 'about' %}">
+            Read More</a>
+        </div>
+        <div class="col-lg-6 bannerhny-info-img mt-lg-0 mt-5 pl-lg-5">
+          <img src="{% static 'images/pic-1.jpg' %}" alt="" class="img-fluid">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--//king-banner-content-->
+</section>
+
+    <!-- about section -->
+    <div class="king-content-photo-5 py-5">
+        <div class="container py-lg-5 py-sm-4">
+            <div class="row align-items-center">
+                <div class="col-lg-6 content-image order-lg-first order-last">
+                    <a href="#image"><img src="{% static 'images/pic-2.jpg' %}" class="img-responsive" alt="content-photo"></a>
+                </div>
+                <div class="col-lg-6 col-md-10 mx-auto content-right mb-lg-0 mb-5 pl-lg-5 order-lg-last order-first">
+                    <h5 class="small-title-2">About our Company</h5>
+                    <h3 class="title-style-2">Creative Solutions</h3>
+                    <p class="my-3">As we all know that the world today looks forward to the Internet for almost every thing. You need to considered taking your brand, business, organization or even your personal skills to the next level.</p>
+                    <p class="border-top-king pt-4 mt-4"> By owning a professional website or blog with a strong online presence and branding. Taking this bold step towards going viral with your career, business, brand or organization by allowing the I.T gurus give you a desired online profile and much more will help utilize the advancement in technology for business growth.</p>
+
+                    <!-- <a href="#small-dialog" class="popup-with-zoom-anim d-flex align-items-center mt-md-5 mt-4">
+                        <span class="video-play-icon mr-3">
+                            <span class="far fa-play-circle"></span>
+                        </span>Watch Our <br>Video
+                    </a> -->
+
+                    <!-- dialog itself, mfp-hide class is required to make dialog hidden -->
+                    <div id="small-dialog" class="zoom-anim-dialog mfp-hide">
+                        <iframe src="{% static 'videos/video.mp4' %}" frameborder="0"
+                            allow="autoplay; fullscreen" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //about section -->
+
+    <!-- team section -->
+    <!-- <section class="king-team py-5">
+        <div class="container py-md-5 py-4">
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6 section-heading">
+                    <h5 class="small-title-2">Our Teammates </h5>
+                    <h3 class="title-style-2">Our Creative Team</h3>
+                </div>
+                <div class="col-md-6 section-heading mt-md-0 mt-2">
+                    <p>
+                        Sed ut perspiciatis unde omnis iste natus error sit accusantium doloremque,
+                        eaque ipsa quae ab illo inventore.Sed ut perspiciatis unde omnis iste natus error sit.
+                    </p>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="team-block-single">
+                        <div class="team-grids">
+                            <a href="#team-single">
+                                <img src="{% static 'images/team3.jpg' %}" class="img-fluid" alt="">
+                                <div class="team-info">
+                                    <div class="social-icons-section">
+                                        <a class="fac" href="#facebook">
+                                            <span class="fab fa-facebook-f"></span>
+                                        </a>
+                                        <a class="twitter mx-2" href="#twitter">
+                                            <span class="fab fa-twitter"></span>
+                                        </a>
+                                        <a class="google" href="#google-plus">
+                                            <span class="fab fa-google-plus-g"></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="team-bottom-block p-4">
+                            <h5 class="member mb-1"><a href="#team">Olive Yew</a></h5>
+                            <small>Web Developer</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 mt-sm-0 mt-4">
+                    <div class="team-block-single">
+                        <div class="team-grids">
+                            <a href="#team-single">
+                                <img src="{% static 'images/team2.jpg' %}" class="img-fluid" alt="">
+                                <div class="team-info">
+                                    <div class="social-icons-section">
+                                        <a class="fac" href="#facebook">
+                                            <span class="fab fa-facebook-f"></span>
+                                        </a>
+                                        <a class="twitter mx-2" href="#twitter">
+                                            <span class="fab fa-twitter"></span>
+                                        </a>
+                                        <a class="google" href="#google-plus">
+                                            <span class="fab fa-google-plus-g"></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="team-bottom-block p-4">
+                            <h5 class="member mb-1 active"><a href="#team">Aida Joe</a></h5>
+                            <small>Marketing Head</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 mt-lg-0 mt-4">
+                    <div class="team-block-single">
+                        <div class="team-grids">
+                            <a href="#team-single">
+                                <img src="{% static 'images/team4.jpg' %}" class="img-fluid" alt="">
+                                <div class="team-info">
+                                    <div class="social-icons-section">
+                                        <a class="fac" href="#facebook">
+                                            <span class="fab fa-facebook-f"></span>
+                                        </a>
+                                        <a class="twitter mx-2" href="#twitter">
+                                            <span class="fab fa-twitter"></span>
+                                        </a>
+                                        <a class="google" href="#google-plus">
+                                            <span class="fab fa-google-plus-g"></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="team-bottom-block p-4">
+                            <h5 class="member mb-1"><a href="#team">Teri Dac</a></h5>
+                            <small>Sales Manager</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 mt-lg-0 mt-4">
+                    <div class="team-block-single">
+                        <div class="team-grids">
+                            <a href="#team-single">
+                                <img src="{% static 'images/team1.jpg' %}" class="img-fluid" alt="">
+                                <div class="team-info">
+                                    <div class="social-icons-section">
+                                        <a class="fac" href="#facebook">
+                                            <span class="fab fa-facebook-f"></span>
+                                        </a>
+                                        <a class="twitter mx-2" href="#twitter">
+                                            <span class="fab fa-twitter"></span>
+                                        </a>
+                                        <a class="google" href="#google-plus">
+                                            <span class="fab fa-google-plus-g"></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="team-bottom-block p-4">
+                            <h5 class="member mb-1"><a href="#team">Anton Bne</a></h5>
+                            <small>Event Organizer</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <!-- //team setion -->
+
+    <!-- content section -->
+    <section class="king-content-mid py-5">
+        <div class="container py-md-5 py-4">
+            {% if Freequotes %}
+            {% for item in Freequotes %}
+            <div class="welcome-left">
+                <h3 class="title-king">The Best Quote of the day from Us!</h3>
+                <!-- <p class="mt-3 text-white">{{ item.body  }} -->
+                </p>
+                <a href="{% url 'Freequote' %}" class="btn btn-style mt-4">Get free quote</a>
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </section>
+    <!-- //content section -->
+
+<br>
+<br><br>
+
+
+    <!-- testimonials section -->
+    <section class="king-clients py-5" id="testimonials">
+        <div class="container py-md-5 py-4">
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6 section-heading">
+                    <h5 class="small-title-2">Oue Clients Testimonials</h5>
+                    <h3 class="title-style-2">Few words from our clients...</h3>
+                </div>
+                <div class="col-md-6 section-heading mt-md-0 mt-2">
+                    <!-- <p>
+                        Here are few words from our clients...
+                    </p> -->
+                </div>
+            </div>
+            <div id="owl-demo2" class="owl-carousel owl-theme pb-5">
+                <div class="item">
+                    <div class="testimonial-content">
+                        <div class="testimonial">
+                            <blockquote>
+                                <q></q>
+                            </blockquote>
+                            <p> Kingnze did outstanding work for us on branding, webpage design and maintenance. </p>
+                        </div>
+                        <div class="bottom-info mt-4">
+                            <!-- <a class="comment-img" href="#url"><img src="{% static 'images/testi1.jpg' %}"
+                                    class="img-responsive" alt="placeholder image"></a> -->
+                            <div class="people-info align-self">
+                                <h3>Johnson william</h3>
+                                <p class="identity">USA</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="testimonial-content">
+                        <div class="testimonial">
+                            <blockquote>
+                                <q></q>
+                            </blockquote>
+                            <p>With flawless designs and an agile solution that better propagates our business.</p>
+                        </div>
+                        <div class="bottom-info mt-4">
+                            <!-- <a class="comment-img" href="#url"><img src="{% static 'images/111.jpg' %}"
+                                    class="img-responsive" alt="placeholder image"></a> -->
+                            <div class="people-info align-self">
+                                <h3>Alexander sakura</h3>
+                                <p class="identity">India</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="testimonial-content">
+                        <div class="testimonial">
+                            <blockquote>
+                                <q></q>
+                            </blockquote>
+                            <p>satisfactory job has sealed my faith in their professionalism and capability.</p>
+                        </div>
+                        <div class="bottom-info mt-4">
+                            <!-- <a class="comment-img" href="#url"><img src="{% static 'images/mum111.jpg' %}"
+                                    class="img-responsive" alt="placeholder image"></a> -->
+                            <div class="people-info align-self">
+                                <h3>John wilson</h3>
+                                <p class="identity">Canada</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="testimonial-content">
+                        <div class="testimonial">
+                            <blockquote>
+                                <q></q>
+                            </blockquote>
+                            <p>Kingnze support team is also exceptional, always ensuring our website is performing optimally.</p>
+                        </div>
+                        <div class="bottom-info mt-4">
+                            <!-- <a class="comment-img" href="#url"><img src="{% static 'images/5.jpg' %}"
+                                    class="img-responsive" alt="placeholder image"></a> -->
+                            <div class="people-info align-self">
+                                <h3>Julia Sarr</h3>
+                                <p class="identity">Senegal</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="testimonial-content">
+                        <div class="testimonial">
+                            <blockquote>
+                                <q></q>
+                            </blockquote>
+                            <p>Kingnze have demonstrated commitment to assisting us in achieving our goals.</p>
+                        </div>
+                        <div class="bottom-info mt-4">
+                            <!-- <a class="comment-img" href="#url"><img src="{% static 'images/3311.jpg' %}"
+                                    class="img-responsive" alt="placeholder image"></a> -->
+                            <div class="people-info align-self">
+                                <h3>Khan wiliam</h3>
+                                <p class="identity">Germany</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="testimonial-content">
+                        <div class="testimonial">
+                            <blockquote>
+                                <q></q>
+                            </blockquote>
+                            <p> They have become our trusted digital partner. They consistently deliver great results.</p>
+                        </div>
+                        <div class="bottom-info mt-4">
+                            <!-- <a class="comment-img" href="#url"><img src="{% static 'images/5.jpg' %}"
+                                    class="img-responsive" alt="placeholder image"></a> -->
+                            <div class="people-info align-self">
+                                <h3>Jin Lee</h3>
+                                <p class="identity">China</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //testimonials section -->
+
+<!-- stats -->
+<section class="king-stats py-lg-0 py-5" id="stats">
+    <div class="gallery-inner container py-lg-0 py-3">
+      <div class="row stats-con">
+        <div class="col-lg-3 col-6 stats_info counter_grid">
+          <span class="fa fa-users"></span>
+          <p class="counter">102</p>
+          <h4>Clients</h4>
+        </div>
+        <div class="col-lg-3 col-6 stats_info counter_grid1">
+          <span class="fa fa-laptop"></span>
+          <p class="counter">84</p>
+          <h4>Web Programs</h4>
+        </div>
+        <div class="col-lg-3 col-6 stats_info counter_grid mt-lg-0 mt-5">
+          <span class="fa fa-smile"></span>
+          <p class="counter">79</p>
+          <h4>Happy Clients</h4>
+        </div>
+        <div class="col-lg-3 col-6 stats_info counter_grid2 mt-lg-0 mt-5">
+          <span class="fa fa-trophy"></span>
+          <p class="counter">75</p>
+          <h4>Success Meets</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- //stats -->
+
+
+    <!-- blog section -->
+    <div class="king-homeblock2 py-5">
+        <div class="container py-md-5 py-4">
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6 section-heading">
+                    <h5 class="small-title-2">Our News & Articles</h5>
+                    <h3 class="title-style-2">Latest Blog Posts</h3>
+                </div>
+                <div class="col-md-6 section-heading mt-md-0 mt-2">
+                    <!-- <p>
+                        Sed ut perspiciatis unde omnis iste natus error sit accusantium doloremque,
+                        eaque ipsa quae ab illo inventore.Sed ut perspiciatis unde omnis iste natus error sit.
+                    </p> -->
+                </div>
+            </div>
+            <div class="row">
+                {% if world %}
+               {% for item in world %}
+                <div class="col-lg-6">
+                    <div class="bg-clr-white hover-box" style="border: none; box-shadow: none !important;">
+                        <div class="row align-items-center">
+                            <div style="padding-right: 0px; padding-left: 0px;" class="col-sm-6 position-relative ">
+                                <a href="{% url 'worldnewsdetail' item.slug %}">
+                                    <img style="height: 10.5rem;" class="img-fluid d-block"  src="{{item.leadimg.url}}" alt="image">
+                                </a>
+                            </div>
+                            <div class="col-sm-6">
+                                <br>
+                                <a href="{% url 'worldnews' %}">
+                                    <span style="color: rgb(80, 45, 209);" class="label-style label-style-2">World</span>
+                                </a>
+                                <div class="card-body blog-details align-self pl-sm-0">
+                                    <a href="{% url 'worldnewsdetail' item.slug %}" class="blog-desc">{{item.title}}
+                                    </a>
+                                    <!-- <p>{{ item.body | truncatechars:90 | safe }}</p> -->
+                                    <div class="d-flex align-items-center justify-content-between mt-lg-4 mt-0">
+                                        <h5 class="text-blog-e" >{{ item.date_posted }}</h5>
+                                        <a href="#blog" class="blog-icon-e"><i class="fas fa-plus"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                   
+                </div>
+                {% endfor %}
+                {% endif %}
+               
+               <br>
+           </div>
+
+           <div class="row">
+            {% if africa %}
+            {% for item in africa %}
+            <div class="col-lg-6">
+                <div class="bg-clr-white hover-box" style="border: none; box-shadow: none !important;">
+                    <div class="row align-items-center">
+                        <div style="padding-right: 0px; padding-left: 0px;"   class="col-sm-6 position-relative">
+                            <a href="{% url 'africanewsdetail' item.slug %}">
+                                <img style="height: 10.5rem;"  class="img-fluid d-block"  src="{{item.leadimg.url}}" alt="image">
+                            </a>
+                        </div>
+                        <div class="col-sm-6">
+                            <br>
+                            <a href="{% url 'africanews' %}">
+                                <span style="color: rgb(80, 45, 209);" class="label-style label-style-2">Africa</span>
+                            </a>
+                            <div class="card-body blog-details align-self pl-sm-0">
+                                <a href="{% url 'africanewsdetail' item.slug %}"  class="blog-desc">{{ item.title  }}
+                                </a>
+                                <!-- <p>{{ item.body | truncatechars:90 | safe }}</p> -->
+                                <div class="d-flex align-items-center justify-content-between mt-lg-4 mt-0">
+                                    <h5 class="text-blog-e" >{{ item.date_posted }}</h5>
+                                    <a href="#blog" class="blog-icon-e"><i class="fas fa-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+               
+            </div>
+            {% endfor %}
+            {% endif %}
+           
+           <br>
+       </div>
+
+       <div class="row">
+        {% if local %}
+            {% for item in local %}
+        <div class="col-lg-6">
+            <div class="bg-clr-white hover-box" style="border: none; box-shadow: none !important;">
+                <div class="row align-items-center">
+                    <div style="padding-right: 0px; padding-left: 0px;"  class="col-sm-6 position-relative">
+                        <a href="{% url 'localnewsdetail' item.slug %}">
+                            <img style="height: 10.5rem;"  class="img-fluid d-block"  src="{{item.leadimg.url}}" alt="image">
+                        </a>
+                    </div>
+                    <div class="col-sm-6">
+                        <br>
+                        <a href="{% url 'localnews' %}">
+                            <span style="color: rgb(80, 45, 209);" class="label-style label-style-2">Local</span>
+                        </a>
+                        <div class="card-body blog-details align-self pl-sm-0">
+                            <a href="{% url 'localnewsdetail' item.slug %}"  class="blog-desc">{{ item.title  }}
+                            </a>
+                            <!-- <p>{{ item.body | truncatechars:90 | safe }}</p> -->
+                            <div class="d-flex align-items-center justify-content-between mt-lg-4 mt-0">
+                                <h5 class="text-blog-e">{{ item.date_posted }}</h5>
+                                <a href="#blog" class="blog-icon-e"><i class="fas fa-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+            </div>
+           
+         </div>
+        {% endfor %}
+        {% endif %}
+       
+       <br>
+       </div>
+       <div class="row">
+        {% if sports %}
+        {% for item in sports %}
+        <div class="col-lg-6">
+            <div class="bg-clr-white hover-box" style="border: none; box-shadow: none !important;">
+                <div class="row align-items-center">
+                    <div style="padding-right: 0px; padding-left: 0px;"  class="col-sm-6 position-relative">
+                        <a href="{% url 'sportsnewsdetail' item.slug %}">
+                            <img style="height: 10.5rem;"  class="img-fluid d-block" src="{{item.leadimg.url}}" alt="image">
+                        </a>
+                    </div>
+                    <div class="col-sm-6">
+                        <br>
+                        <a href="{% url 'sportsnews' %}">
+                            <span style="color: rgb(80, 45, 209);" class="label-style label-style-2">Sports</span>
+                        </a>
+                        <div class="card-body blog-details align-self pl-sm-0">
+                            <a href="{% url 'sportsnewsdetail' item.slug %}"  class="blog-desc">{{ item.title  }}
+                            </a>
+                            <!-- <p>{{ item.body | truncatechars:90 | safe }}</p> -->
+                            <div class="d-flex align-items-center justify-content-between mt-lg-4 mt-0">
+                                <h5 class="text-blog-e" >{{ item.date_posted }}</h5>
+                                <a href="#blog" class="blog-icon-e"><i class="fas fa-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+            </div>
+           
+        </div>
+        {% endfor %}
+        {% endif %}
+       
+       <br>
+   </div>
+
+   <div class="row">
+            {% if enternews %}
+            {% for item in enternews %}
+    <div class="col-lg-6">
+        <div class="bg-clr-white hover-box" style="border: none; box-shadow: none !important;">
+            <div class="row align-items-center">
+                <div style="padding-right: 0px; padding-left: 0px;"  class="col-sm-6 position-relative">
+                    <a href="{% url 'entertainmentdetail' item.slug %}">
+                        <img style="height: 10.5rem;"  class="img-fluid d-block" src="{{item.leadimg.url}}" alt="image">
+                    </a>
+                </div>
+                <div class="col-sm-6">
+                    <br>
+                    <a href="{% url 'entertainment' %}">
+                        <span style="color: rgb(80, 45, 209);" class="label-style label-style-2">Entertainment</span>
+                    </a>
+                    <div class="card-body blog-details align-self pl-sm-0">
+                        <a href="{% url 'entertainmentdetail' item.slug %}"  class="blog-desc">{{ item.title  }}
+                        </a>
+                        <!-- <p>{{ item.body | truncatechars:90 | safe }}</p> -->
+                        <div class="d-flex align-items-center justify-content-between mt-lg-4 mt-0">
+                            <h5 class="text-blog-e" >{{ item.date_posted }}</h5>
+                            <a href="#blog" class="blog-icon-e"><i class="fas fa-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+        </div>
+       
+    </div>
+    {% endfor %}
+    {% endif %}
+   
+   <br>
+</div>
+        </div>
+    </div>
+    <!-- //blog section -->
+
+    <section style=" margin-top: -10rem;" id="home" class="king-banner py-5" sty>
+        <div class="container pt-5 pb-md-4">
+            <div class="row align-items-center">
+                <div class="col-md-6 banner-left pt-md-0 pt-5">
+                    <h3 class="mb-sm-4 mb-3 title"><br><span><span
+                                class="text-js">Sit back relax and enjoy what we bring...</span></span></h3>
+                    <div class="mt-md-5 mt-4 mb-lg-0 mb-4">
+                        <!-- <a class="btn button-style" href="about.html">Get Started<i class="fa fa-angle-double-right"
+                                aria-hidden="true"></i></a> -->
+                    </div>
+                </div>
+                <div class="col-md-6 banner-right mt-md-0 mt-4">
+                    <img class="img-fluid" src="{% static 'images/b1.jpg' %}" alt=" ">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <marquee style="background-color: #ffc845;  color: black; height: 2rem; font-size: large; font-weight: 500;" behavior="" direction="">We are a solution driven team passionate about your business success, executing every project with Strategy, Tenacity and Excellent delivery in mind.</marquee>
+    </div>
+<br> 
+
+{% endblock content %}
