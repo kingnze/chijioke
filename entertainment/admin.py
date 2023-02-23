@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import entertainment
+from .models import entertainment,entertainmentComment
 # Register your models here.
 
 
@@ -10,3 +10,4 @@ class entertainmentAdmin(admin.ModelAdmin):
     list_per_page = 10
 
 admin.site.register(entertainment, entertainmentAdmin)
+admin.site.register(entertainmentComment)

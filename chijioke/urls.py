@@ -11,5 +11,6 @@ urlpatterns = [
     path('stportsnews', include('stportsnews.urls')),
     path('africanews', include('africanews.urls')),
     path('entertainment', include('entertainment.urls')),
+    path('account/', include('account.urls')), 
     path('quote', include('quote.urls')),
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

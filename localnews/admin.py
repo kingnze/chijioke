@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import localnews
+from .models import localnews,localnewsComment
 
 # Register your models here.
 
@@ -11,3 +11,4 @@ class localnewsAdmin(admin.ModelAdmin):
     list_per_page = 10
 
 admin.site.register(localnews, localnewsAdmin)
+admin.site.register(localnewsComment)

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import worldnews
+from .models import worldnews,worldnewsComment
 
 # Register your models here.
 
@@ -11,6 +11,7 @@ class worldnewsAdmin(admin.ModelAdmin):
     list_per_page = 10
 
 admin.site.register(worldnews, worldnewsAdmin)
+admin.site.register(worldnewsComment)
 
 
 

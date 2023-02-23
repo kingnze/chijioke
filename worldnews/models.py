@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 class worldnews(models.Model):
     title = models.CharField(max_length=550)
     slug = models.SlugField(max_length=550,null=True,blank=True)
-    published = models.BooleanField(default=False,null=True,blank=True)
+    published = models.BooleanField(default=True,null=True,blank=True)
     flag = models.BooleanField(default=False,null=True,blank=True)
     date_posted = models.DateTimeField(default=datetime.now())
     leadimg = models.ImageField(default='myleadimg.jpg')
@@ -30,4 +30,19 @@ class worldnews(models.Model):
         verbose_name_plural = 'worldnews'
 
 
+
+class worldnewsComment(models.Model):
+    body = models.TextField()
+    worldnewsusercomment = models.ForeignKey(User,on_delete=models.DO_NOTHING)  
+    post = models.ForeignKey(worldnews,on_delete=models.CASCADE)
+    date_posted = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.body
+
+    class Meta:
+        db_table = 'worldnewsComments'
+        managed = True
+        verbose_name = 'worldnewsComment'
+        verbose_name_plural = 'worldnewsComments'  
         

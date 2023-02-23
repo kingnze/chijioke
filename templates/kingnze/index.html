@@ -1,757 +1,1363 @@
 {% extends "base.html" %}
 {% load static %}
-
+{% load humanize %}
 {% block title %}
   Home
 {% endblock title %}
 
 {% block content %}
-  
+<section style="background-color: var(--bg-grey); margin-top: 7rem;"  class="w3l-mag-main">
 
-    <!-- banner section -->
-    <section class="banner-19">
-        <div class="banner-layer">
-            <video autoplay muted loop id="myVideo">
-                <source src="{% static 'videos/codinglang.mp4' %}" type="video/mp4">
-                Your browser does not support video.
-            </video>
-            <div class="main-content-top">
-                <div class="container">
-                    <div class="main-content">
-                        <!-- if logo is image enable this   
-                        <a class="logo" href="index.html">
-                            <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
-                        </a> -->
-                        <h4 class="mb-sm-4 mb-3 title"><br><span class="type-js"><span
-                            class="text-js">We Execute Your Ideas From Start to Finish...</span></span></h4>
-                        <!-- <h4>We Execute Your Ideas From Start to Finish </h4> -->
-                        <p class="mt-3">We are a solution driven team passionate about your business success, executing every project with Strategy, Tenacity and Excellent delivery in mind.</p>
-                        <a href="{% url 'services' %}" class="btn btn-style mt-md-5 mt-4">Read More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+	<div  class="mag-content-inf py-5">
+		<div class="container ">
+			<div class="banner-bottom-sechny py-md-4">
+				<!-- <h3 class="hny-title text-center">Recent <span>News</span></h3> -->
+				<div style="border-top: 3px solid var(--heading-color);"  class="ban-content-inf row py-lg-3">
+					
+					<div  class="maghny-gd-1 col-lg-6">
+								{% if headline %}
+                                {% for item in headline %}
+						<a  href="{% url 'headlinenewsdetail' item.slug %}">
+							<div  class="maghny-grid">
+								<figure class="effect-lily">
+									<img class="img-fluid" src="{{item.leadimg.url}}" alt="">
+									<figcaption class="w3set-hny">
+										<div>
+											<h4>Headline</h4>
+										   
+										</div>
+	
+									</figcaption>
+								</figure>
+								
+							</div>
+						</a>
+						<div >
+							<h5 class="top-title"><a href="{% url 'headlinenewsdetail' item.slug %}">{{item.title}}</a></h5>
+								<div class="sub-meta">
+									<span>
+										<i class="far fa-clock"></i> {{ item.date_posted }}</span>
+								</div>
+						</div>
+					</div>
+					{% endfor %}
+					{% endif %}
+					<div class="maghny-gd-1 col-lg-6">
+						<div class="row">
+							{% if sports %}
+                            {% for item in sports %}
+							<div  class="maghny-gd-1 col-md-6">
+								<div class="maghny-grid">
+									<figure class="effect-lily">
+										<img class="img-fluid" src="{{item.leadimg.url}}">
+										<figcaption>
+										
 
-    <!-- //banner section -->
+										</figcaption>
+									</figure>
+								</div>
+								<a href="{% url 'sportsnews' %}"><span style="color: rgb(80, 45, 209); font-size: 15px; font-size: 15px;" class="label-style label-style-2">Sports</span></a>
+								<h5 class="top-title"><a href="{% url 'sportsnewsdetail' item.slug %}">{{item.title}}</a></h5>
+								<div class="sub-meta">
+									<span>
+										<i class="far fa-clock"></i> {{ item.date_posted }}</span>
+								</div>
+								<!-- <a href="{% url 'sportsnewsdetail' item.slug %}" class="read-more btn mt-3">Read More</a> -->
+							</div>
+							{% endfor %}
+                             {% endif %}
+				             {% if bigstory %}
+                             {% for item in bigstory %}
+							<div  class="maghny-gd-1 col-md-6">
+								<div  class="maghny-grid">
+									<figure class="effect-lily">
+										<img class="img-fluid" src="{{item.leadimg.url}}">
+										<figcaption>
+										
+										</figcaption>
+									</figure>
+								</div>
+								<a href="{% url 'bigstory' %}"><span style="color: rgb(80, 45, 209); font-size: 15px;" class="label-style label-style-2">Big Story</span></a>
+								<h5 class="top-title"><a href="{% url 'bigstorynewsdetail' item.slug %}">{{item.title}}</a></h5>
+								<div class="sub-meta">
+									<span>
+										<i class="far fa-clock"></i> {{ item.date_posted }}</span>
+								</div>
+								<!-- <a href="{% url 'bigstorynewsdetail' item.slug %}" class="read-more btn mt-3">Read More</a> -->
+							</div>
+							{% endfor %}
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div  class="blog-inner-grids py-md-4 row">
+				
+				<div style="border-top: 3px solid var(--heading-color);"  class="mag-content-left-hny col-lg-8">
+					<div   class="mag-hny-content">
+						<h3 class="hny-title py-3">Latest <span>Articles</span></h3>
+						<!--/mag-left-grid-1-->
+						<div   class="maghny-grids-inf row">
+							{% if world %}
+            				{% for item in world %}
+							<div  class="maghny-gd-1 col-lg-4 col-md-6">
+								<div class="maghny-grid">
+									<figure class="effect-lily">
+										<img class="img-fluid" src="{{item.leadimg.url}}" alt="">
+										
+									</figure>
+								</div>
+								<a href="{% url 'worldnews' %}"><span style="color: rgb(80, 45, 209); font-size: 15px;" class="label-style label-style-2">World</span></a>
+
+								<h5><a href="{% url 'worldnewsdetail' item.slug %}">{{item.title}}</a></h5>
+
+								<div class="sub-meta">
+									<span>
+										<i class="far fa-clock"></i> {{ item.date_posted }}</span>
+								</div>
+						   </div>
+                              {% endfor %}
+							   {% endif %}
+							{% if africa %}
+            				{% for item in africa %}
+							<div class="maghny-gd-1 col-lg-4 col-md-6">
+								<div class="maghny-grid">
+									<figure class="effect-lily">
+										<img class="img-fluid" src="{{item.leadimg.url}}" alt="">
+										
+									</figure>
+								</div>
+								<a href="{% url 'africanews' %}">
+									<span style="color: rgb(80, 45, 209); font-size: 15px;" class="label-style label-style-2">Africa</span>
+								</a>
+
+								<h5><a href="{% url 'africanewsdetail' item.slug %}">{{item.title}}</a></h5>
+
+								<div class="sub-meta"><span>
+									<i class="far fa-clock"></i> {{ item.date_posted }}</span>
+							</div>
+							{% endfor %}
+							{% endif %}
+							</div>
+							
+							{% if local %}
+							{% for item in local %}
+							<div  class="maghny-gd-1 col-lg-4 col-md-6">
+								<div class="maghny-grid">
+									<figure class="effect-lily">
+										<img class="img-fluid" src="{{item.leadimg.url}}" alt="">
+										
+									</figure>
+								</div>
+								<a href="{% url 'localnews' %}">
+									<span style="color: rgb(80, 45, 209); font-size: 15px;" class="label-style label-style-2">Local</span>
+								</a>
+
+								<h5><a href="{% url 'localnewsdetail' item.slug %}">{{item.title}}</a></h5>
+								<div class="sub-meta"><span>
+									<i class="far fa-clock"></i> {{ item.date_posted }}</span>
+							</div>
+							</div>
+							{% endfor %}
+							{% endif %}
+						</div>
+					</div>
+					<div  class="mag-hny-content my-lg-5">
+						<!-- <h3 class="hny-title py-3">Great <span>lifestyle</span></h3> -->
+						<!--/mag-left-grid-1-->
+						<div class="maghny-grids-inf row">
+							{% if politics %}
+        					{% for item in politics %}
+							<div style="border-top: 3px solid var(--heading-color);" class="maghny-gd-1 col-md-6">
+								<div class="maghny-grid">
+									<figure class="effect-lily">
+										<img class="img-fluid" src="{{item.leadimg.url}}" alt="">
+										<figcaption>
+											<!-- <div>
+												<h4>Sittin people beside table inside <span> room</span></h4>
+												<p>Jan.20.2020 </p>
+											</div> -->
+
+										</figcaption>
+									</figure>
+								</div>
+								<a href="{% url 'politics' %}">
+									<span style="color: rgb(80, 45, 209); font-size: 15px;" class="label-style label-style-2">Politics</span>
+								</a>
+								<h5><a href="{% url 'politicsnewsdetail' item.slug %}">{{ item.title  }}</a></h5>
+								<!-- <p>{{ item.body | truncatechars:90 | safe }}</p> -->
+								<div class="sub-meta">
+									<span>
+										<i class="far fa-clock"></i> {{ item.date_posted }}</span>
+								</div>
+							</div>
+							{% endfor %}
+        					{% endif %}
+							{% if enternews %}
+            				{% for item in enternews %}
+							<div style="border-top: 3px solid var(--heading-color);" class="maghny-gd-1 col-md-6">
+								<div class="maghny-grid">
+									<figure class="effect-lily">
+										<img class="img-fluid" src="{{item.leadimg.url}}">
+										<figcaption>
+										</figcaption>
+									</figure>
+								</div>
+								<a href="{% url 'entertainment' %}"><span style="color: rgb(80, 45, 209); font-size: 15px;" class="label-style label-style-2">Entertainment</span></a>
+								<h5><a href="{% url 'entertainmentdetail' item.slug %}">{{ item.title  }}</a></h5>
+								<!-- <p>{{ item.body | truncatechars:90 | safe }}</p> -->
+								<div class="sub-meta">
+									<span>
+										<i class="far fa-clock"></i> {{ item.date_posted }}</span>
+								</div>
+							</div>
+							{% endfor %}
+        					{% endif %}
+						</div>
+						<!--/mag-sub-grids-->
+						<div  class="row mng-front-cont mt-5">
+							<div style="border-top: 3px solid var(--heading-color);" class="mag-small-post col-md-6">
+								<div  class="post-item-grid row mb-4">
+									{% if headline %}
+            				        {% for item in headline %}
+									<div class="mag-post-thumb col-4">
+										<a href="{% url 'headlinenewsdetail' item.slug %}"><img src="{{item.leadimg.url}}" class="img-fluid" alt=""></a>
+
+									</div>
+									<div class="mag-post-details col-8">
+										
+										<h4 class="mag-post-title">
+											<a href="{% url 'headlinenewsdetail' item.slug %}">{{ item.title  }}</a> </h4>
+
+											<a href="{% url 'headline' %}">
+												<span style="color: rgb(80, 45, 209); font-size: 15px;" class="label-style label-style-2">Headline</span>
+											</a>
+											<div class="sub-meta">
+												<span>
+													<i class="far fa-clock"></i> {{ item.date_posted }}</span>
+											</div>
+									</div>
+									{% endfor %}
+        					        {% endif %}
+								</div>
 
 
-    <section style=" margin-top: -1rem;">
-        <div class="container py-0">
-        <div class="row text-center">
-          <div class="col-md-12 text-center">
-            <br>
-            <br>
-            <h6 style="color: rgb(90, 86, 86);;">SEEING OUR CLIENTS WIN IS WHAT GETS US EXCITED</h6>
-            <br>
-            <h3 style="font-size: 2rem; font-family: geneva; font-weight: 1000; color: #ffc845;">Digital Services </h3>
-            <br>
-            <p>
-              We are a solution driven team passionate about your business success, executing every project with Strategy, Tenacity and Excellent delivery in mind.
-            </p>
-          </div>
-        </div>
-      </div>
-      </section>
+
+								<div class="post-item-grid row mb-4">
+									{% if bigstory %}
+            				        {% for item in bigstory %}
+									<div class="mag-post-thumb col-4">
+										<a href="{% url 'bigstorynewsdetail' item.slug %}"><img src="{{item.leadimg.url}}" class="img-fluid" alt=""></a>
+
+									</div>
+									<div class="mag-post-details col-8">
+										
+										<h4 class="mag-post-title">
+											<a href="{% url 'bigstorynewsdetail' item.slug %}">{{ item.title  }}</a> </h4>
+											<a href="{% url 'bigstory' %}">
+												<span style="color: rgb(80, 45, 209); font-size: 15px;" class="label-style label-style-2">Big Story</span>
+											</a>
+											<div class="sub-meta">
+												<span>
+													<i class="far fa-clock"></i> {{ item.date_posted }}</span>
+											</div>
+									</div>
+									{% endfor %}
+        					        {% endif %}
+								</div>
 
 
-    <!-- banner bottom section -->
-    <section class="king-aboutblock py-5">
-        <div class="container py-md-5 py-sm-4">
-            <div class="row">
-                <div class="col-lg-6 left-wthree-img mb-lg-0 mb-4">
-                    <img class="img-fluid img-responsive" src="{% static 'images/pic-3.jpg' %}" alt=" ">
-                </div>
-                <div class="col-lg-6 about-right-faq align-self pl-lg-5">
-                    <h3 class="title-style">We are fueled by our clients’ success!</h3>
-                    <p class="mt-2">We get it... you want to stand out in a noisy marketplace. You want your business to be perceived the right way. We have got you coverd.</p>
-                    <div class="mt-4 pt-md-2">
-                        <div class="about-info-m d-flex">
-                            <div class="icon-style-ab mr-4">
-                                <i class="fas fa-donate"></i>
+
+								<div class="post-item-grid row mb-4">
+									{% if world %}
+            				        {% for item in world %}
+									<div class="mag-post-thumb col-4">
+										<a href="{% url 'worldnewsdetail' item.slug %}"><img src="{{item.leadimg.url}}" class="img-fluid" alt=""></a>
+
+									</div>
+									<div class="mag-post-details col-8">
+										
+										<h4 class="mag-post-title">
+											<a href="{% url 'worldnewsdetail' item.slug %}">{{ item.title  }}</a> </h4>
+											<a href="{% url 'worldnews' %}">
+												<span style="color: rgb(80, 45, 209); font-size: 15px;" class="label-style label-style-2">World</span>
+											</a>
+											<div class="sub-meta">
+												<span>
+													<i class="far fa-clock"></i> {{ item.date_posted }}</span>
+											</div>
+									</div>
+									{% endfor %}
+        					        {% endif %}
+								</div>
+
+
+
+								<div class="post-item-grid row mb-4">
+									{% if africa%}
+            				        {% for item in africa%}
+									<div class="mag-post-thumb col-4">
+										<a href="{% url 'africanewsdetail' item.slug %}"><img src="{{item.leadimg.url}}" class="img-fluid" alt=""></a>
+
+									</div>
+									<div class="mag-post-details col-8">
+										
+										<h4 class="mag-post-title">
+											<a href="{% url 'africanewsdetail' item.slug %}">{{ item.title  }}</a> </h4>
+											<a href="{% url 'africanews' %}">
+												<span style="color: rgb(80, 45, 209); font-size: 15px;" class="label-style label-style-2">Africa</span>
+											</a>
+											<div class="sub-meta">
+												<span>
+													<i class="far fa-clock"></i> {{ item.date_posted }}</span>
+											</div>
+									</div>
+									{% endfor %}
+        					        {% endif %}
+								</div>
+
+
+							</div>
+							<div style="border-top: 3px solid var(--heading-color);" class="mag-small-post col-md-6">
+								<div  class="post-item-grid row mb-4">
+									{% if local %}
+            				        {% for item in local %}
+									<div class="mag-post-thumb col-4">
+										<a href="{% url 'localnewsdetail' item.slug %}"><img src="{{item.leadimg.url}}" class="img-fluid" alt=""></a>
+
+									</div>
+									<div class="mag-post-details col-8">
+										
+										<h4 class="mag-post-title">
+											<a href="{% url 'localnewsdetail' item.slug %}">{{ item.title  }}</a> </h4>
+											<a href="{% url 'localnews' %}">
+												<span style="color: rgb(80, 45, 209); font-size: 15px;" class="label-style label-style-2">Local</span>
+											</a>
+											<div class="sub-meta">
+												<span>
+													<i class="far fa-clock"></i> {{ item.date_posted }}</span>
+											</div>
+									</div>
+									{% endfor %}
+        					        {% endif %}
+								</div>
+
+
+
+								<div class="post-item-grid row mb-4">
+									{% if sports %}
+            				        {% for item in sports %}
+									<div class="mag-post-thumb col-4">
+										<a href="{% url 'sportsnewsdetail' item.slug %}"><img src="{{item.leadimg.url}}" class="img-fluid" alt=""></a>
+
+									</div>
+									<div class="mag-post-details col-8">
+										<h4 class="mag-post-title">
+											<a href="{% url 'sportsnewsdetail' item.slug %}">{{ item.title  }}</a> </h4>
+											<a href="{% url 'sportsnews' %}">
+												<span style="color: rgb(80, 45, 209); font-size: 15px;" class="label-style label-style-2">Sports</span>
+											</a>
+											<div class="sub-meta">
+												<span>
+													<i class="far fa-clock"></i> {{ item.date_posted }}</span>
+											</div>
+									</div>
+									{% endfor %}
+        					        {% endif %}
+								</div>
+
+
+
+								<div  class="post-item-grid row mb-4">
+									{% if politics %}
+            				        {% for item in politics %}
+									<div class="mag-post-thumb col-4">
+										<a href="{% url 'politicsnewsdetail' item.slug %}"><img src="{{item.leadimg.url}}" class="img-fluid" alt=""></a>
+
+									</div>
+									<div class="mag-post-details col-8">
+										<h4 class="mag-post-title">
+											<a href="{% url 'politicsnewsdetail' item.slug %}">{{ item.title  }}</a> </h4>
+											<a href="{% url 'politics' %}">
+												<span style="color: rgb(80, 45, 209); font-size: 15px;" class="label-style label-style-2">Politics</span>
+											</a>
+											<div class="sub-meta">
+												<span>
+													<i class="far fa-clock"></i> {{ item.date_posted }}</span>
+											</div>
+									</div>
+									{% endfor %}
+        					        {% endif %}
+								</div>
+
+
+
+								<div class="post-item-grid row mb-4">
+									{% if enternews %}
+            				        {% for item in enternews %}
+									<div class="mag-post-thumb col-4">
+										<a href="{% url 'entertainmentdetail' item.slug %}"><img src="{{item.leadimg.url}}" class="img-fluid" alt=""></a>
+
+									</div>
+
+									<div class="mag-post-details col-8">
+										
+										<h4 class="mag-post-title">
+											<a href="{% url 'entertainmentdetail' item.slug %}">{{ item.title  }}</a> </h4>
+											<a href="{% url 'entertainment' %}">
+												<span style="color: rgb(80, 45, 209); font-size: 15px;" class="label-style label-style-2">Entertainment</span>
+											</a>
+											<div class="sub-meta">
+												<span>
+													<i class="far fa-clock"></i> {{ item.date_posted }}</span>
+											</div>
+									</div>
+									{% endfor %}
+        					        {% endif %}
+								</div>
+							</div>
+						</div>
+						<!--//mag-sub-grids-->
+					</div>
+					<div style="border-top: 3px solid var(--heading-color);" class="mag-hny-content my-lg-5 mt-5">
+						<h3 class="hny-title py-3 "><span> Latest Post</span></h3>
+						<div class="maghny-grids-inf row">
+							{% if headline %}
+            				{% for item in headline %}
+							<div class="maghny-gd-1 col-lg-4 col-md-6">
+								<div class="maghny-grid">
+									<figure class="effect-lily">
+										<img class="img-fluid" src="{{item.leadimg.url}}">
+										<figcaption>
+											
+
+										</figcaption>
+									</figure>
+								</div>
+								<a href="{% url 'headline' %}">
+									<span style="color: rgb(80, 45, 209); font-size: 15px;" class="label-style label-style-2">Headline</span>
+								</a>
+								<h5><a href="{% url 'headlinenewsdetail' item.slug %}">{{ item.title  }}</a></h5>
+								<div class="sub-meta">
+									<span>
+										<i class="far fa-clock"></i> {{ item.date_posted }}</span>
+								</div>
+							</div>
+							{% endfor %}
+        					{% endif %}
+							{% if bigstory %}
+            				{% for item in bigstory %}
+							<div class="maghny-gd-1 col-lg-4 col-md-6">
+								<div class="maghny-grid">
+									<figure class="effect-lily">
+										<img class="img-fluid" src="{{item.leadimg.url}}">
+										<figcaption>
+											
+
+										</figcaption>
+									</figure>
+								</div>
+								<a href="{% url 'bigstory' %}">
+									<span style="color: rgb(80, 45, 209); font-size: 15px;" class="label-style label-style-2">Big Story</span>
+								</a>
+								<h5><a href="{% url 'bigstorynewsdetail' item.slug %}">{{ item.title  }}</a></h5>
+								<div class="sub-meta">
+									<span>
+										<i class="far fa-clock"></i> {{ item.date_posted }}</span>
+								</div>
+							</div>
+							{% endfor %}
+        					{% endif %}
+							{% if sports %}
+            				{% for item in sports %}
+							<div class="maghny-gd-1 col-lg-4 col-md-6">
+								<div class="maghny-grid">
+									<figure class="effect-lily">
+										<img class="img-fluid" src="{{item.leadimg.url}}">
+										<figcaption>
+										</figcaption>
+									</figure>
+								</div>
+								<a href="{% url 'sportsnews' %}">
+									<span style="color: rgb(80, 45, 209); font-size: 15px;" class="label-style label-style-2">Sports</span>
+								</a>
+								<h5><a href="{% url 'sportsnewsdetail' item.slug %}">{{ item.title  }}</a></h5>
+								<div class="sub-meta">
+									<span>
+										<i class="far fa-clock"></i> {{ item.date_posted }}</span>
+								</div>
+							</div>
+							{% endfor %}
+        					{% endif %}
+						</div>
+					</div>
+
+					<div  style="border-top: 3px solid var(--heading-color);" class="mag-hny-content my-lg-5 mb-5">
+						<h3 class="hny-title py-3">Latest News</h3>
+						<div class="maghny-grids-inf row my-5">
+							{% if headline %}
+							{% for item in headline %}
+							<div class="mag-post-thumb col-md-6">
+								<a href="{% url 'headlinenewsdetail' item.slug %}"><img src="{{item.leadimg.url}}" class="img-fluid" alt=""></a>
+
+							</div>
+							<div class="mag-post-fashion-details col-md-6 mt-md-0 mt-4">
+								<a href="{% url 'headline' %}">
+									<span style="color: rgb(80, 45, 209); font-size: 15px;" class="label-style label-style-2">Headline</span>
+								</a>
+								<a href="{% url 'headlinenewsdetail' item.slug %}" class="link-mag">
+									<h4 class="mag-post-head">{{ item.title }}</h4>
+								</a>
+								<div class="sub-meta">
+									<span>
+										<i class="far fa-clock"></i> {{ item.date_posted }}</span>
+								</div>
+								<a href="{% url 'headlinenewsdetail' item.slug %}" class="read-more btn">Read More</a>
+
+							</div>
+							{% endfor %}
+        					{% endif %}
+						</div>
+						<div class="maghny-grids-inf row">
+							{% if world %}
+              				{% for item in world %}
+							<div class="mag-post-thumb col-md-6">
+								<a href="{% url 'worldnewsdetail' item.slug %}"><img src="{{item.leadimg.url}}" class="img-fluid" alt=""></a>
+
+							</div>
+							<div class="mag-post-fashion-details col-md-6 mt-md-0 mt-4">
+								<a href="{% url 'worldnews' %}">
+									<span style="color: rgb(80, 45, 209); font-size: 15px;" class="label-style label-style-2">World</span>
+								</a>
+								<a href="{% url 'worldnewsdetail' item.slug %}" class="link-mag">
+									<h4 class="mag-post-head">{{item.title}}</h4>
+								</a>
+								<div class="sub-meta">
+									<span>
+										<i class="far fa-clock"></i> {{ item.date_posted }}</span>
+								</div>
+								<a href="{% url 'worldnewsdetail' item.slug %}" class="read-more btn">Read More</a>
+
+							</div>
+							{% endfor %}
+							{% endif %}
+
+						</div>
+						<div class="maghny-grids-inf row my-5">
+							{% if africa %}
+            				{% for item in africa %}		
+							<div class="mag-post-thumb col-md-6">
+								<a href="{% url 'africanewsdetail' item.slug %}"><img src="{{item.leadimg.url}}" class="img-fluid" alt=""></a>
+
+							</div>
+							<div class="mag-post-fashion-details col-md-6 mt-md-0 mt-4">
+								<a href="{% url 'africanews' %}">
+									<span style="color: rgb(80, 45, 209); font-size: 15px;" class="label-style label-style-2">Africa</span>
+								</a>
+								<a href="{% url 'africanewsdetail' item.slug %}" class="link-mag">
+									<h4 class="mag-post-head">{{item.title}}</h4>
+								</a>
+								<div class="sub-meta">
+									<span>
+										<i class="far fa-clock"></i> {{ item.date_posted }}</span>
+								</div>
+								
+								<a href="{% url 'africanewsdetail' item.slug %}" class="read-more btn">Read More</a>
+
+							</div>
+							{% endfor %}
+							{% endif %}
+
+						</div>
+						<div class="maghny-grids-inf row">
+							{% if local %}
+							{% for item in local %}
+							<div class="mag-post-thumb col-md-6">
+								<a href="{% url 'localnewsdetail' item.slug %}"><img src="{{item.leadimg.url}}" class="img-fluid" alt=""></a>
+
+							</div>
+							<div class="mag-post-fashion-details col-md-6 mt-md-0 mt-4">
+								<a href="{% url 'localnews' %}">
+									<span style="color: rgb(80, 45, 209); font-size: 15px;" class="label-style label-style-2">Local</span>
+								</a>
+								<a href="{% url 'localnewsdetail' item.slug %}" class="link-mag">
+									<h4 class="mag-post-head">{{item.title}}</h4>
+								</a>
+								<div class="sub-meta">
+									<span>
+										<i class="far fa-clock"></i> {{ item.date_posted }}</span>
+								</div>
+								<a href="{% url 'localnewsdetail' item.slug %}" class="read-more btn">Read More</a>
+
+							</div>
+
+							{% endfor %}
+							{% endif %}
+						</div>
+					</div>
+					<div style="border-top: 3px solid var(--heading-color);" class="mag-hny-content my-lg-5 mb-5">
+						<h3 class="hny-title py-3">Top <span>Categories</span></h3>
+						<div class="fashny-grids-inf row">
+							{% if headline %}
+            				{% for item in headline %}
+							<div class="fashion-gd-1 col-lg-4 col-6">
+								<div class="fas-gallery-grid">
+									<a href="{% url 'headlinenewsdetail' item.slug %}">
+										<div class="content">
+											<div class="content-overlay"></div>
+											<img src="{{item.leadimg.url}}" class="img-fluid" alt="">
+											<div class="content-details fadeIn-bottom">
+												<h4 style="color: white;" class="content-title">Headline</h4>
+
+											</div>
+										</div>
+									</a>
+								</div>
+							</div>
+							{% endfor %}
+                            {% endif %}
+							{% if world %}
+            				{% for item in world %}
+							<div class="fashion-gd-1 col-lg-4 col-6">
+								<div class="fas-gallery-grid">
+									<a href="{% url 'worldnewsdetail' item.slug %}">
+										<div class="content">
+											<div class="content-overlay"></div>
+											<img src="{{item.leadimg.url}}" class="img-fluid" alt="">
+											<div class="content-details fadeIn-bottom">
+												<h4 style="color: white;" class="content-title">World</h4>
+
+											</div>
+										</div>
+									</a>
+								</div>
+							</div>
+							{% endfor %}
+                            {% endif %}
+							{% if sports %}
+            				{% for item in sports %}
+							<div class="fashion-gd-1 col-lg-4 col-6">
+								<div class="fas-gallery-grid">
+									<a href="{% url 'sportsnewsdetail' item.slug %}">
+										<div class="content">
+											<div class="content-overlay"></div>
+											<img src="{{item.leadimg.url}}" class="img-fluid" alt="">
+											<div class="content-details fadeIn-bottom">
+												<h4 style="color: white;" class="content-title">Sports</h4>
+
+											</div>
+										</div>
+									</a>
+								</div>
+							</div>
+							{% endfor %}
+							{% endif %}
+						</div>
+
+					</div>
+					<div style="border-top: 3px solid var(--heading-color);" class="mag-hny-content my-5">
+						<h3 class="hny-title py-3">Health</h3>
+						<div class="maghny-grids-inf row">
+							        {% if health %}
+									{% for item in health %}
+							<div class="maghny-gd-1 col-md-6">
+								<div class="maghny-grid mb-3">
+									<a href="{% url 'healthnewsdetail' item.slug %}"><img class="img-fluid" src="{{item.leadimg.url}}" alt=""></a>
+								</div>
+								<a href="{% url 'health' %}">
+									<span style="color: rgb(80, 45, 209); font-size: 15px;" class="label-style label-style-2">Health</span>
+								</a>
+								<h5><a href="{% url 'healthnewsdetail' item.slug %}">{{item.title}}</a></h5>
+								<!-- <p>Vivamus a ligula quam. Ut blandit eu leo non suscipit. Duis feugiat tortor sed.</p> -->
+								<div class="sub-meta">
+									<span>
+										<i class="far fa-clock"></i> {{ item.date_posted }}</span>
+								</div>
+							</div>
+							{% endfor %}
+                            {% endif %}
+							
+						</div>
+					</div>
+					<!--//mag-left-grid-5-->
+
+					<!--/health-->
+					<div style="border-top: 3px solid var(--heading-color);" class="mag-hny-content my-5">
+						<h3 class="hny-title py-3">Environment</h3>
+						<!--/mag-left-grid-1-->
+						<div class="maghny-grids-inf row">
+							{% if environment %}
+							{% for item in environment %}
+					<div class="maghny-gd-1 col-md-6">
+						<div class="maghny-grid mb-3">
+							<a href="{% url 'environmentnewsdetail' item.slug %}"><img class="img-fluid" src="{{item.leadimg.url}}" alt=""></a>
+						</div>
+						<a href="{% url 'environment' %}">
+							<span style="color: rgb(80, 45, 209); font-size: 15px;" class="label-style label-style-2">Environment</span>
+						</a>
+						<h5><a href="{% url 'environmentnewsdetail' item.slug %}">{{item.title}}</a></h5>
+						<!-- <p>Vivamus a ligula quam. Ut blandit eu leo non suscipit. Duis feugiat tortor sed.</p> -->
+						<div class="sub-meta">
+							<span>
+								<i class="far fa-clock"></i> {{ item.date_posted }}</span>
+						</div>
+					</div>
+					{% endfor %}
+					{% endif %}
+					
+					
+						</div>
+					</div>
+					<div style="border-top: 3px solid var(--heading-color);" class="mag-hny-content my-5">
+						<h3 class="hny-title py-3">Tech</h3>
+						<div class="maghny-grids-inf row">
+							{% if tech %}
+							{% for item in tech %}
+					<div class="maghny-gd-1 col-md-6">
+						<div class="maghny-grid mb-3">
+							<a href="{% url 'technewsdetail' item.slug %}"><img class="img-fluid" src="{{item.leadimg.url}}" alt=""></a>
+						</div>
+						<a href="{% url 'tech' %}">
+							<span style="color: rgb(80, 45, 209); font-size: 15px;" class="label-style label-style-2">Tech</span>
+						</a>
+						<h5><a href="{% url 'technewsdetail' item.slug %}">{{item.title}}</a></h5>
+						<!-- <p>Vivamus a ligula quam. Ut blandit eu leo non suscipit. Duis feugiat tortor sed.</p> -->
+						<div class="sub-meta">
+							<span>
+								<i class="far fa-clock"></i> {{ item.date_posted }}</span>
+						</div>
+					</div>
+					{% endfor %}
+					{% endif %}
+					
+						</div>
+					</div>
+
+					<!--/mag-hny-content-1-->
+					<div style="border-top: 3px solid var(--heading-color);" class="mag-hny-content">
+						<h3 class="hny-title py-3">Latest <span>Articles</span></h3>
+						<!--/mag-left-grid-1-->
+						<div class="maghny-grids-inf row">
+							{% if world %}
+            				{% for item in world %}
+							<div class="maghny-gd-1 col-lg-4 col-md-6">
+								<div class="maghny-grid">
+									<figure class="effect-lily">
+										<img class="img-fluid" src="{{item.leadimg.url}}" alt="">
+										
+									</figure>
+								</div>
+								<a href="{% url 'worldnews' %}">
+									<span style="color: rgb(80, 45, 209); font-size: 15px;" class="label-style label-style-2">World</span>
+								</a>
+
+								<h5><a href="{% url 'worldnewsdetail' item.slug %}">{{item.title}}</a></h5>
+
+								<div class="sub-meta">
+									<span>
+										<i class="far fa-clock"></i> {{ item.date_posted }}</span>
+								</div>
+						   </div>
+                              {% endfor %}
+							   {% endif %}
+							{% if africa %}
+            				{% for item in africa %}
+							<div class="maghny-gd-1 col-lg-4 col-md-6">
+								<div class="maghny-grid">
+									<figure class="effect-lily">
+										<img class="img-fluid" src="{{item.leadimg.url}}" alt="">
+										
+									</figure>
+								</div>
+								<a href="{% url 'africanews' %}">
+									<span style="color: rgb(80, 45, 209); font-size: 15px;" class="label-style label-style-2">Africa</span>
+								</a>
+
+								<h5><a href="{% url 'africanewsdetail' item.slug %}">{{item.title}}</a></h5>
+
+								<div class="sub-meta"><span>
+									<i class="far fa-clock"></i> {{ item.date_posted }}</span>
+							</div>
+							{% endfor %}
+							{% endif %}
+							</div>
+							
+							{% if local %}
+							{% for item in local %}
+							<div class="maghny-gd-1 col-lg-4 col-md-6">
+								<div class="maghny-grid">
+									<figure class="effect-lily">
+										<img class="img-fluid" src="{{item.leadimg.url}}" alt="">
+										
+									</figure>
+								</div>
+								<a href="{% url 'localnews' %}">
+									<span style="color: rgb(80, 45, 209); font-size: 15px;" class="label-style label-style-2">Local</span>
+								</a>
+
+								<h5><a href="{% url 'localnewsdetail' item.slug %}">{{item.title}}</a></h5>
+								<div class="sub-meta"><span>
+									<i class="far fa-clock"></i> {{ item.date_posted }}</span>
+							</div>
+							</div>
+							{% endfor %}
+							{% endif %}
+						</div>
+					</div>
+					<!--//mag-hny-content-1-->
+
+					<div style="border-top: 3px solid var(--heading-color);" class="mag-hny-content my-5">
+						<h3 class="hny-title py-3">Business</h3>
+						<div class="maghny-grids-inf row">
+							{% if business %}
+							{% for item in business %}
+					<div class="maghny-gd-1 col-md-6">
+						<div class="maghny-grid mb-3">
+							<a href="{% url 'businessnewsdetail' item.slug %}"><img class="img-fluid" src="{{item.leadimg.url}}" alt=""></a>
+						</div>
+						<a href="{% url 'business' %}">
+							<span style="color: rgb(80, 45, 209); font-size: 15px;" class="label-style label-style-2">Business</span>
+
+						</a>
+						<h5><a href="{% url 'businessnewsdetail' item.slug %}">{{item.title}}</a></h5>
+						<!-- <p>Vivamus a ligula quam. Ut blandit eu leo non suscipit. Duis feugiat tortor sed.</p> -->
+						<div class="sub-meta">
+							<span>
+								<i class="far fa-clock"></i> {{ item.date_posted }}</span>
+						</div>
+					</div>
+					{% endfor %}
+					{% endif %}
+					
+						</div>
+					</div>
+
+					<div style="border-top: 3px solid var(--heading-color);" class="mag-hny-content my-5">
+						<h3 class="hny-title py-3">Crime</h3>
+						<div class="maghny-grids-inf row">
+							{% if crime %}
+							{% for item in crime %}
+					<div class="maghny-gd-1 col-md-6">
+						<div class="maghny-grid mb-3">
+							<a href="{% url 'crimenewsdetail' item.slug %}"><img class="img-fluid" src="{{item.leadimg.url}}" alt=""></a>
+						</div>
+						<a href="{% url 'crime' %}">
+							<span style="color: rgb(80, 45, 209); font-size: 15px;" class="label-style label-style-2">Crime</span>
+						</a>
+						<h5><a href="{% url 'crimenewsdetail' item.slug %}">{{item.title}}</a></h5>
+						<!-- <p>Vivamus a ligula quam. Ut blandit eu leo non suscipit. Duis feugiat tortor sed.</p> -->
+						<div class="sub-meta">
+							<span>
+								<i class="far fa-clock"></i> {{ item.date_posted }}</span>
+						</div>
+					</div>
+					{% endfor %}
+					{% endif %}
+					
+						</div>
+					</div>
+				</div>
+
+				<div style="border-top: 3px solid var(--heading-color);" class="mag-content-right-hny col-lg-4">
+					<aside>
+						<div  class="side-bar-hny-recent mb-5">
+							<h4 class="mag-side-title " ><span> Trendy Post</span></h4>
+							<div class="mag-small-post">
+								<div class="post-item-grid row mb-4">
+									{% if trending %}
+									{% for item in trending %}
+									<div class="mag-post-thumb col-4">
+										<a href="{% url 'trendingnewsdetail' item.slug %}"><img src="{{item.leadimg.url}}" class="img-fluid" alt=""></a>
+
+									</div>
+									<div class="mag-post-details col-8">
+										<h4 class="mag-post-title"><a href="{% url 'trendingnewsdetail' item.slug %}">{{item.title}}</a> </h4>
+										<a href="{% url 'trending' %}">
+											<span style="color: rgb(80, 45, 209); font-size: 15px;" class="label-style label-style-2">Trending</span>
+										</a>
+
+										<div class="sub-meta">
+											<span>
+												<i class="far fa-clock"></i> {{ item.date_posted }}</span>
+										</div>
+									</div>
+									{% endfor %}
+								    {% endif %}
+								</div>
+								
+								
+							</div>
+						</div>
+						
+						<div class="side-bar-hny-recent mb-5">
+							<h4 class="mag-side-title"><span>Top Categories</span></h4>
+							<div class="mag-small-post">
+								<div class="post-item-grid align-items-center row mb-0">
+									{% if world %}
+						            {% for item in world %}
+							<div class="mag-post-thumb col-3 pl-0">
+
+										<a href="{% url 'worldnewsdetail' item.slug %}"><img src="{{item.leadimg.url}}" class="img-fluid" alt=""></a>
+									</div>
+									<div class="mag-post-details col-9">
+										<h4 class="mag-post-cate">
+											<a href="{% url 'worldnewsdetail' item.slug %}">World</a> </h4>
+
+
+									</div>
+						           {% endfor %}
+						           {% endif %}
+								</div>
+								<div class="post-item-grid align-items-center row mb-0">
+									{% if africa %}
+						            {% for item in africa %}
+									<div class="mag-post-thumb col-3 pl-0">
+										<a href="{% url 'africanewsdetail' item.slug %}"><img src="{{item.leadimg.url}}" class="img-fluid" alt=""></a>
+
+									</div>
+									<div class="mag-post-details align-items-center col-9">
+										<h4 class="mag-post-cate">
+											<a href="{% url 'africanewsdetail' item.slug %}">Africa</a>
+										</h4>
+
+									</div>
+									{% endfor %}
+						           {% endif %}
+								</div>
+								<div class="post-item-grid align-items-center row mb-0">
+									{% if local %}
+						            {% for item in local %}
+									<div class="mag-post-thumb col-3 pl-0">
+
+										<a href="{% url 'localnewsdetail' item.slug %}"><img src="{{item.leadimg.url}}" class="img-fluid" alt=""></a>
+									</div>
+									<div class="mag-post-details col-9">
+										<h4 class="mag-post-cate">
+											<a href="{% url 'localnewsdetail' item.slug %}">Local</a>
+										</h4>
+
+									</div>
+									{% endfor %}
+						           {% endif %}
+								</div>
+								<div class="post-item-grid align-items-center row mb-0">
+									{% if sports %}
+						            {% for item in sports %}
+									<div class="mag-post-thumb col-3 pl-0">
+										<a href="{% url 'sportsnewsdetail' item.slug %}"><img src="{{item.leadimg.url}}" class="img-fluid" alt=""></a>
+
+									</div>
+									<div class="mag-post-details col-9">
+										<h4 class="mag-post-cate">
+											<a href="{% url 'sportsnewsdetail' item.slug %}">Sports</a>
+										</h4>
+									</div>
+									{% endfor %}
+						           {% endif %}
+								</div>
+								<div class="post-item-grid align-items-center row mb-4">
+									{% if enternews %}
+						            {% for item in enternews %}
+									<div class="mag-post-thumb col-3 pl-0">
+										<a href="{% url 'entertainmentdetail' item.slug %}"><img src="{{item.leadimg.url}}" class="img-fluid" alt=""></a>
+
+									</div>
+									<div class="mag-post-details col-9">
+										<h4 class="mag-post-cate">
+											<a href="{% url 'entertainmentdetail' item.slug %}">Entertainment</a>
+										</h4>
+									</div>
+									{% endfor %}
+						           {% endif %}
+								</div>
+
+							</div>
+						</div>
+						<div class="side-bar-hny-recent mb-5">
+							<div class="mag-small-post">
+								<div class="mag-add-post">
+									<a href=""><img src="{% static 'images/aa11.jpg' %}" alt=""
+											class="img-fluid"></a>
+								</div>
+							</div>
+						</div>
+						<div class="side-bar-hny-recent mb-5">
+							<h4 class="mag-side-title " ><span>Top Story</span></h4>
+							<div class="mag-small-post">
+								{% if world %}
+                                {% for item in world %}
+								<div class="post-item-grid row mb-4">
+
+									<div class="mag-post-thumb col-4">
+										<a href="{% url 'worldnewsdetail' item.slug %}"><img src="{{item.leadimg.url}}" class="img-fluid" alt=""></a>
+
+									</div>
+									<div class="mag-post-details col-8">
+										<h4 class="mag-post-title"><a href="{% url 'worldnewsdetail' item.slug %}">{{item.title}}</a> </h4>
+										<a href="{% url 'worldnews' %}">
+											<span style="color: rgb(80, 45, 209); font-size: 15px;" class="label-style label-style-2">World</span>
+										</a>
+										<div class="sub-meta">
+											<span>
+												<i class="far fa-clock"></i> {{ item.date_posted }}</span>
+										</div>
+									</div>
+								</div>
+								{% endfor %}
+								{% endif %}
+							   
+								{% if africa %}
+								{% for item in africa %}
+
+								<div class="post-item-grid row mb-4">
+									<div class="mag-post-thumb col-4">
+										<a href="{% url 'africanewsdetail' item.slug %}"><img src="{{item.leadimg.url}}" class="img-fluid" alt=""></a>
+
+									</div>
+									<div class="mag-post-details col-8">
+										<h4 class="mag-post-title">
+											<a href="{% url 'africanewsdetail' item.slug %}">{{item.title}}</h4>
+												<a href="{% url 'africanews' %}">
+													<span style="color: rgb(80, 45, 209); font-size: 15px;" class="label-style label-style-2">Africa</span>
+												</a>
+
+												<div class="sub-meta">
+													<span>
+														<i class="far fa-clock"></i> {{ item.date_posted }}</span>
+												</div>
+									</div>
+								</div>
+
+								{% endfor %}
+								{% endif %}
+								{% if local %}
+								{% for item in local %}
+								<div class="post-item-grid row mb-4">
+									<div class="mag-post-thumb col-4">
+										<a href="{% url 'localnewsdetail' item.slug %}"><img src="{{item.leadimg.url}}" class="img-fluid" alt=""></a>
+
+									</div>
+									<div class="mag-post-details col-8">
+										<h4 class="mag-post-title">
+											<a href="{% url 'localnewsdetail' item.slug %}">{{item.title}}</a> </h4>
+											<a href="{% url 'localnews' %}">
+												<span style="color: rgb(80, 45, 209); font-size: 15px;" class="label-style label-style-2">Local</span>
+											</a>
+											<div class="sub-meta">
+												<span>
+													<i class="far fa-clock"></i> {{ item.date_posted }}</span>
+											</div>
+									</div>
+								</div>
+
+
+								{% endfor %}
+								{% endif %}
+								{% if sports %}
+                               {% for item in sports %}
+								<div class="post-item-grid row mb-4">
+									<div class="mag-post-thumb col-4">
+										<a href="{% url 'sportsnewsdetail' item.slug %}"><img src="{{item.leadimg.url}}" class="img-fluid" alt=""></a>
+
+									</div>
+									<div class="mag-post-details col-8">
+										<h4 class="mag-post-title">
+											<a href="{% url 'sportsnewsdetail' item.slug %}">{{item.title}}</a>
+										</h4>
+										<a href="{% url 'sportsnews' %}">
+											<span style="color: rgb(80, 45, 209); font-size: 15px;" class="label-style label-style-2">Sports</span>
+										</a>
+										<div class="sub-meta">
+											<span>
+												<i class="far fa-clock"></i> {{ item.date_posted }}</span>
+										</div>
+									</div>
+								</div>
+								{% endfor %}
+								{% endif %}
+								{% if enternews %}
+								{% for item in enternews %}
+								<div class="post-item-grid row mb-4">
+									<div class="mag-post-thumb col-4">
+										<a href="{% url 'entertainmentdetail' item.slug %}"><img src="{{item.leadimg.url}}" class="img-fluid" alt=""></a>
+
+									</div>
+									<div class="mag-post-details col-8">
+										<h4 class="mag-post-title">
+											<a href="{% url 'entertainmentdetail' item.slug %}">{{item.title}}</a>
+										</h4>
+										<a href="{% url 'entertainment' %}">
+											<span style="color: rgb(80, 45, 209); font-size: 15px;" class="label-style label-style-2">Entertainment</span>
+										</a>
+										<div class="sub-meta">
+											<span>
+												<i class="far fa-clock"></i> {{ item.date_posted }}</span>
+										</div>
+									</div>
+								</div>
+								{% endfor %}
+								{% endif %}
+							</div>
+						</div>
+						<div class="sidebar-widget social-style">
+                            <div class="sidebar-title">
+                                <h4>Social Media</h4>
                             </div>
-                            <div class="about-detail">
-                                <h4>Extra benefit through digital marketing</h4>
-                                <p>Speak to an expert and hear for yourself how digital marketing can help your business grow and succeed.</p>
-                            </div>
-                        </div>
-                        <div class="about-info-m d-flex mt-4">
-                            <div class="icon-style-ab mr-4">
-                                <i class="fab fa-asymmetrik"></i>
-                            </div>
-                            <div class="about-detail">
-                                <h4>Expand profit through digital marketing</h4>
-                                <p>We will understand your business and goals, review your existing activity, and share strategies and tips to help you get better results</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- //banner bottom section -->
 
-    <!-- services section -->
-    <div class="service-section py-5">
-        <div class="container py-md-5 py-4">
-            <div class="row align-items-center mb-5">
-                <div class="col-md-6 section-heading">
-                    <h5 class="small-title-2">Web Services</h5>
-                    <h3 class="title-style-2">
-                        Our Best Services</h3>
-                </div>
-                <div class="col-md-6 section-heading mt-md-0 mt-2">
-                    <p>
-                        We have seen first-hand how strategy, web design and digital marketing can help a business grow and succeed – and do this at scale. Now, it’s our mission to use every skill, knowledge and experience we have to help as many businesses as possible.
-                    </p>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-4 col-md-6 item" >
-                    <div class="card" style="border: none; box-shadow: none !important; padding: 0px !important;">
-                        <div class="card-header p-0 position-relative border-0">
-                            <!-- <a href="{% url 'services' %}">
-                                <div class="inner">
-                                    <img class="d-block img-responsive" src="{% static 'images/lagos1.jpg' %}" alt="card-image">
+                            <a href="#facebook"><i class="fab fa-facebook-f"></i>Facebook</a>
+                            <a href="#twitter"><i class="fab fa-twitter"></i>Twitter</a>
+                            <a href="#instagram"><i class="fab fa-instagram"></i>Instagram</a>
+                            <a href="#googleplus"><i class="fab fa-google-plus-g"></i>Google Plus</a>
+                            <a href="#youtube"><i class="fab fa-youtube"></i>Youtube</a>
+                            <a href="#viemo"><i class="fab fa-vimeo-v"></i>Viemo</a>
+                        </div>
+						<div class="side-bar-hny-recent mb-5">
+							<h4 class="mag-side-title"><span>IN THE NEWS</span></h4>
+							<div class="mag-small-post">
+								<div class="post-item-grid row mb-4">
+									{% if headline %}
+                                    {% for item in headline %}
+									<div class="mag-post-details col-12">
+										<h4 class="mag-post-title">
+											<a href="{% url 'headlinenewsdetail' item.slug %}">{{item.title}}</a>
+										</h4>
 
-                                </div>
-                            </a> -->
-                            <a href="{% url 'services' %}">
-                                <div class="inner">
-                                    <img class="d-block img-responsive" src="{% static 'images/lagos1.jpg' %}" alt="card-image">
 
-                                </div>
-                            </a>
-                        </div>
-                        <div class="card-body service-details">
-                            <span class="label-style">Work</span>
-                            <a href="{% url 'services' %}" class="service-heading">Website Designing</a>
-                            <p>Web development is the work involved in developing a Web site for the Internet or an intranet. Web development can range from developing a simple single...</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mt-md-0 mt-4">
-                    <div class="card" style="border: none; box-shadow: none !important; padding: 0px !important;">
-                        <div class="card-header p-0 position-relative border-0">
-                            <a href="{% url 'services' %}">
-                                <div class="inner">
-                                    <img style="height: 15.5rem;" class="d-block img-responsive" src="{% static 'images/lagos2.jpg' %}" alt="card-image">
-
-                                </div>
-                            </a>
-                        </div>
-                        <div class="card-body service-details">
-                            <span class="label-style label-style-2">Business</span>
-                            <a href="{% url 'services' %}" class="service-heading">Ecommerce Web Applications</a>
-                            <p>An E-commerce website allows people to buy and sell physical goods, services, and digital products over the internet rather than at a brick-and-mortar location...</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mt-lg-0 mt-4">
-                    <div class="card" style="border: none; box-shadow: none !important; padding: 0px !important;">
-                        <div class="card-header p-0 position-relative border-0">
-                            <a href="{% url 'corporate' %}">
-                                <div class="inner">
-                                    <img style="height: 15.5rem;" class="d-block img-responsive" src="{% static 'images/lagos5.jpg' %}" alt="card-image">
-
-                                </div>
-                            </a>
-                        </div>
-                        <div class="card-body service-details">
-                            <span class="label-style label-style-3">Corporate</span>
-                            <a href="{% url 'corporate' %}" class="service-heading">Digital Marketing</a>
-                            <p>A Corporate website is a website that officially represents a brand on the Internet. Beyond a mere testimonial presence...
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- //services section -->
+									</div>
+									{% endfor %}
+                                    {% endif %}
+								</div>
 
 
 
-<section>
-    <!--/king-banner-content-->
-  <div class="king-banner-content">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 bannerhny-info pr-lg-5">
-          <h3 class="mb-4">Expect Great Things from <span style=" color: #ffc845;" class="w3sub-color">
-              Your Costumer</span></h3>
-          <div class="separatorhny"></div>
-          <p class="pr-lg-5 mt-md-4 mt-3">We provide the best IT support to businesses to ensure that their service is running efficiently.
-          </p>
-          <a class="btn btn-style mt-sm-5 mt-4 mr-2" href="{% url 'about' %}">
-            Read More</a>
-        </div>
-        <div class="col-lg-6 bannerhny-info-img mt-lg-0 mt-5 pl-lg-5">
-          <img src="{% static 'images/pic-1.jpg' %}" alt="" class="img-fluid">
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--//king-banner-content-->
+								<div class="post-item-grid row mb-4">
+									{% if bigstory %}
+                                    {% for item in bigstory %}
+									<div class="mag-post-details col-12">
+										<h4 class="mag-post-title">
+											<a href="{% url 'bigstorynewsdetail' item.slug %}">{{item.title}}</a>
+										</h4>
+
+
+									</div>
+									{% endfor %}
+                                    {% endif %}
+								</div>
+
+
+
+								<div class="post-item-grid row mb-4">
+									{% if world %}
+                                    {% for item in world %}
+									<div class="mag-post-details col-12">
+										<h4 class="mag-post-title">
+											<a href="{% url 'worldnewsdetail' item.slug %}">{{item.title}}</a>
+										</h4>
+
+
+									</div>
+									{% endfor %}
+                                    {% endif %}
+								</div>
+
+
+
+								<div class="post-item-grid row mb-4">
+									{% if africa %}
+                                    {% for item in africa %}
+									<div class="mag-post-details col-12">
+										<h4 class="mag-post-title">
+											<a href="{% url 'africanewsdetail' item.slug %}">{{item.title}}</a>
+										</h4>
+
+
+									</div>
+									{% endfor %}
+                                    {% endif %}
+								</div>
+
+
+								<div class="post-item-grid row mb-4">
+									{% if local %}
+                                    {% for item in local %}
+									<div class="mag-post-details col-12">
+										<h4 class="mag-post-title">
+											<a href="{% url 'localnewsdetail' item.slug %}">{{item.title}}</a>
+										</h4>
+
+
+									</div>
+									{% endfor %}
+                                    {% endif %}
+								</div>
+
+								<div class="post-item-grid row mb-4">
+									{% if sports %}
+                                    {% for item in sports %}
+									<div class="mag-post-details col-12">
+										<h4 class="mag-post-title">
+											<a href="{% url 'sportsnewsdetail' item.slug %}">{{item.title}}</a>
+										</h4>
+
+
+									</div>
+									{% endfor %}
+                                    {% endif %}
+								</div>
+
+								<div class="post-item-grid row mb-4">
+									{% if enternews %}
+                                    {% for item in enternews %}
+									<div class="mag-post-details col-12">
+										<h4 class="mag-post-title">
+											<a href="{% url 'entertainmentdetail' item.slug %}">{{item.title}}</a>
+										</h4>
+
+
+									</div>
+									{% endfor %}
+                                    {% endif %}
+								</div>
+
+							</div>
+						</div>
+						<div class="side-bar-hny-recent mb-5">
+							<h4 class="mag-side-title"><span>Don't Miss</span></h4>
+							<div class="mag-small-post dont-miss-grids-inf">
+								<div class="maghny-gd-1">
+									{% if headline %}
+							        {% for item in headline %}
+									<div class="maghny-grid mb-3 dont-miss">
+										<a href="{% url 'headlinenewsdetail' item.slug %}"><img class="img-fluid" src="{{item.leadimg.url}}" alt=""></a>
+									</div>
+									<a href="{% url 'headline' %}">
+										<span style="color: rgb(80, 45, 209); font-size: 15px;" class="label-style label-style-2">Headline</span>
+									</a>
+									<h5><a href="{% url 'headlinenewsdetail' item.slug %}">{{item.title}}</a></h5>
+									<!-- <p>{{ item.body | truncatechars:90 | safe }}</p> -->
+									<div class="sub-meta">
+										<span>
+											<i class="far fa-clock"></i> {{ item.date_posted }}</span>
+									</div>
+									{% endfor %}
+									{% endif %}
+								</div>
+								<div class="maghny-gd-1 my-lg-5">
+									{% if health %}
+							        {% for item in health %}
+									<div class="maghny-grid mb-3 dont-miss">
+										<a href="{% url 'healthnewsdetail' item.slug %}"><img class="img-fluid" src="{{item.leadimg.url}}" alt=""></a>
+									</div>
+									<a href="{% url 'health' %}">
+										<span style="color: rgb(80, 45, 209); font-size: 15px;" class="label-style label-style-2">Health</span>
+									</a>
+									<h5><a href="{% url 'healthnewsdetail' item.slug %}">{{item.title}}</a></h5>
+									<!-- <p>{{ item.body | truncatechars:90 | safe }}</p> -->
+									<div class="sub-meta">
+										<span>
+											<i class="far fa-clock"></i> {{ item.date_posted }}</span>
+									</div>
+									{% endfor %}
+									{% endif %}
+								</div>
+								<div class="maghny-gd-1 my-lg-5">
+									{% if politics %}
+							        {% for item in politics %}
+									<div class="maghny-grid mb-3 dont-miss">
+										<a href="{% url 'trendingnewsdetail' item.slug %}"><img class="img-fluid" src="{{item.leadimg.url}}" alt=""></a>
+									</div>
+									<a href="{% url 'politics' %}">
+										<span style="color: rgb(80, 45, 209); font-size: 15px;" class="label-style label-style-2">Politics</span>
+									</a>
+									<h5><a href="{% url 'trendingnewsdetail' item.slug %}">{{item.title}}</a></h5>
+									<!-- <p>{{ item.body | truncatechars:90 | safe }}</p> -->
+									<div class="sub-meta">
+										<span>
+											<i class="far fa-clock"></i> {{ item.date_posted }}</span>
+									</div>
+									{% endfor %}
+									{% endif %}
+								</div>
+								<div class="maghny-gd-1">
+									{% if business %}
+							        {% for item in business %}
+									<div class="maghny-grid mb-3 dont-miss">
+										<a href="{% url 'businessnewsdetail' item.slug %}"><img class="img-fluid" src="{{item.leadimg.url}}" alt=""></a>
+									</div>
+									<a href="{% url 'business' %}">
+										<span style="color: rgb(80, 45, 209); font-size: 15px;" class="label-style label-style-2"> Business</span>
+									</a>
+									<h5><a href="{% url 'businessnewsdetail' item.slug %}">{{item.title}}</a></h5>
+									<!-- <p>{{ item.body | truncatechars:90 | safe }}</p> -->
+									<div class="sub-meta">
+										<span>
+											<i class="far fa-clock"></i> {{ item.date_posted }}</span>
+									</div>
+									{% endfor %}
+									{% endif %}
+								</div>
+								<div class="maghny-gd-1">
+									{% if bigstory %}
+							        {% for item in bigstory %}
+									<div class="maghny-grid mb-3 dont-miss">
+										<a href="{% url 'bigstorynewsdetail' item.slug %}"><img class="img-fluid" src="{{item.leadimg.url}}" alt=""></a>
+									</div>
+									<a href="{% url 'bigstory' %}">
+										<span style="color: rgb(80, 45, 209); font-size: 15px;" class="label-style label-style-2">Big Story</span>
+									</a>
+									<h5><a href="{% url 'bigstorynewsdetail' item.slug %}">{{item.title}}</a></h5>
+									<!-- <p>{{ item.body | truncatechars:90 | safe }}</p> -->
+									<div class="sub-meta">
+										<span>
+											<i class="far fa-clock"></i> {{ item.date_posted }}</span>
+									</div>
+									{% endfor %}
+									{% endif %}
+								</div>
+
+							</div>
+						</div>
+					</aside>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="assets/js/jquery-3.3.1.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			$('.owl-carousel').owlCarousel({
+				loop: true,
+				margin: 0,
+				responsiveClass: true,
+				autoplay: true,
+				autoplayTimeout: 2000,
+				autoplaySpeed: 1000,
+				autoplayHoverPause: true,
+				responsive: {
+					0: {
+						items: 1,
+						nav: false
+					},
+					480: {
+						items: 2,
+						nav: true,
+						margin: 20
+					},
+					667: {
+						items: 3,
+						nav: true,
+						margin: 20
+					},
+					1000: {
+						items: 5,
+						nav: true,
+						margin: 20
+					}
+				}
+			})
+		})
+	</script>
+	<!-- /slider -->
 </section>
-
-    <!-- about section -->
-    <div class="king-content-photo-5 py-5">
-        <div class="container py-lg-5 py-sm-4">
-            <div class="row align-items-center">
-                <div class="col-lg-6 content-image order-lg-first order-last">
-                    <a href="#image"><img src="{% static 'images/pic-2.jpg' %}" class="img-responsive" alt="content-photo"></a>
-                </div>
-                <div class="col-lg-6 col-md-10 mx-auto content-right mb-lg-0 mb-5 pl-lg-5 order-lg-last order-first">
-                    <h5 class="small-title-2">About our Company</h5>
-                    <h3 class="title-style-2">Creative Solutions</h3>
-                    <p class="my-3">As we all know that the world today looks forward to the Internet for almost every thing. You need to considered taking your brand, business, organization or even your personal skills to the next level.</p>
-                    <p class="border-top-king pt-4 mt-4"> By owning a professional website or blog with a strong online presence and branding. Taking this bold step towards going viral with your career, business, brand or organization by allowing the I.T gurus give you a desired online profile and much more will help utilize the advancement in technology for business growth.</p>
-
-                    <!-- <a href="#small-dialog" class="popup-with-zoom-anim d-flex align-items-center mt-md-5 mt-4">
-                        <span class="video-play-icon mr-3">
-                            <span class="far fa-play-circle"></span>
-                        </span>Watch Our <br>Video
-                    </a> -->
-
-                    <!-- dialog itself, mfp-hide class is required to make dialog hidden -->
-                    <div id="small-dialog" class="zoom-anim-dialog mfp-hide">
-                        <iframe src="{% static 'videos/video.mp4' %}" frameborder="0"
-                            allow="autoplay; fullscreen" allowfullscreen></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- //about section -->
-
-    <!-- team section -->
-    <!-- <section class="king-team py-5">
-        <div class="container py-md-5 py-4">
-            <div class="row align-items-center mb-5">
-                <div class="col-md-6 section-heading">
-                    <h5 class="small-title-2">Our Teammates </h5>
-                    <h3 class="title-style-2">Our Creative Team</h3>
-                </div>
-                <div class="col-md-6 section-heading mt-md-0 mt-2">
-                    <p>
-                        Sed ut perspiciatis unde omnis iste natus error sit accusantium doloremque,
-                        eaque ipsa quae ab illo inventore.Sed ut perspiciatis unde omnis iste natus error sit.
-                    </p>
-                </div>
-            </div>
-            <div class="row text-center">
-                <div class="col-lg-3 col-sm-6">
-                    <div class="team-block-single">
-                        <div class="team-grids">
-                            <a href="#team-single">
-                                <img src="{% static 'images/team3.jpg' %}" class="img-fluid" alt="">
-                                <div class="team-info">
-                                    <div class="social-icons-section">
-                                        <a class="fac" href="#facebook">
-                                            <span class="fab fa-facebook-f"></span>
-                                        </a>
-                                        <a class="twitter mx-2" href="#twitter">
-                                            <span class="fab fa-twitter"></span>
-                                        </a>
-                                        <a class="google" href="#google-plus">
-                                            <span class="fab fa-google-plus-g"></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="team-bottom-block p-4">
-                            <h5 class="member mb-1"><a href="#team">Olive Yew</a></h5>
-                            <small>Web Developer</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 mt-sm-0 mt-4">
-                    <div class="team-block-single">
-                        <div class="team-grids">
-                            <a href="#team-single">
-                                <img src="{% static 'images/team2.jpg' %}" class="img-fluid" alt="">
-                                <div class="team-info">
-                                    <div class="social-icons-section">
-                                        <a class="fac" href="#facebook">
-                                            <span class="fab fa-facebook-f"></span>
-                                        </a>
-                                        <a class="twitter mx-2" href="#twitter">
-                                            <span class="fab fa-twitter"></span>
-                                        </a>
-                                        <a class="google" href="#google-plus">
-                                            <span class="fab fa-google-plus-g"></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="team-bottom-block p-4">
-                            <h5 class="member mb-1 active"><a href="#team">Aida Joe</a></h5>
-                            <small>Marketing Head</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 mt-lg-0 mt-4">
-                    <div class="team-block-single">
-                        <div class="team-grids">
-                            <a href="#team-single">
-                                <img src="{% static 'images/team4.jpg' %}" class="img-fluid" alt="">
-                                <div class="team-info">
-                                    <div class="social-icons-section">
-                                        <a class="fac" href="#facebook">
-                                            <span class="fab fa-facebook-f"></span>
-                                        </a>
-                                        <a class="twitter mx-2" href="#twitter">
-                                            <span class="fab fa-twitter"></span>
-                                        </a>
-                                        <a class="google" href="#google-plus">
-                                            <span class="fab fa-google-plus-g"></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="team-bottom-block p-4">
-                            <h5 class="member mb-1"><a href="#team">Teri Dac</a></h5>
-                            <small>Sales Manager</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 mt-lg-0 mt-4">
-                    <div class="team-block-single">
-                        <div class="team-grids">
-                            <a href="#team-single">
-                                <img src="{% static 'images/team1.jpg' %}" class="img-fluid" alt="">
-                                <div class="team-info">
-                                    <div class="social-icons-section">
-                                        <a class="fac" href="#facebook">
-                                            <span class="fab fa-facebook-f"></span>
-                                        </a>
-                                        <a class="twitter mx-2" href="#twitter">
-                                            <span class="fab fa-twitter"></span>
-                                        </a>
-                                        <a class="google" href="#google-plus">
-                                            <span class="fab fa-google-plus-g"></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="team-bottom-block p-4">
-                            <h5 class="member mb-1"><a href="#team">Anton Bne</a></h5>
-                            <small>Event Organizer</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-    <!-- //team setion -->
-
-    <!-- content section -->
-    <section class="king-content-mid py-5">
-        <div class="container py-md-5 py-4">
-            {% if Freequotes %}
-            {% for item in Freequotes %}
-            <div class="welcome-left">
-                <h3 class="title-king">The Best Quote of the day from Us!</h3>
-                <!-- <p class="mt-3 text-white">{{ item.body  }} -->
-                </p>
-                <a href="{% url 'Freequote' %}" class="btn btn-style mt-4">Get free quote</a>
-            </div>
-            {% endfor %}
-            {% endif %}
-        </div>
-    </section>
-    <!-- //content section -->
-
-<br>
-<br><br>
-
-
-    <!-- testimonials section -->
-    <section class="king-clients py-5" id="testimonials">
-        <div class="container py-md-5 py-4">
-            <div class="row align-items-center mb-5">
-                <div class="col-md-6 section-heading">
-                    <h5 class="small-title-2">Oue Clients Testimonials</h5>
-                    <h3 class="title-style-2">Few words from our clients...</h3>
-                </div>
-                <div class="col-md-6 section-heading mt-md-0 mt-2">
-                    <!-- <p>
-                        Here are few words from our clients...
-                    </p> -->
-                </div>
-            </div>
-            <div id="owl-demo2" class="owl-carousel owl-theme pb-5">
-                <div class="item">
-                    <div class="testimonial-content">
-                        <div class="testimonial">
-                            <blockquote>
-                                <q></q>
-                            </blockquote>
-                            <p> Kingnze did outstanding work for us on branding, webpage design and maintenance. </p>
-                        </div>
-                        <div class="bottom-info mt-4">
-                            <!-- <a class="comment-img" href="#url"><img src="{% static 'images/testi1.jpg' %}"
-                                    class="img-responsive" alt="placeholder image"></a> -->
-                            <div class="people-info align-self">
-                                <h3>Johnson william</h3>
-                                <p class="identity">USA</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="testimonial-content">
-                        <div class="testimonial">
-                            <blockquote>
-                                <q></q>
-                            </blockquote>
-                            <p>With flawless designs and an agile solution that better propagates our business.</p>
-                        </div>
-                        <div class="bottom-info mt-4">
-                            <!-- <a class="comment-img" href="#url"><img src="{% static 'images/111.jpg' %}"
-                                    class="img-responsive" alt="placeholder image"></a> -->
-                            <div class="people-info align-self">
-                                <h3>Alexander sakura</h3>
-                                <p class="identity">India</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="testimonial-content">
-                        <div class="testimonial">
-                            <blockquote>
-                                <q></q>
-                            </blockquote>
-                            <p>satisfactory job has sealed my faith in their professionalism and capability.</p>
-                        </div>
-                        <div class="bottom-info mt-4">
-                            <!-- <a class="comment-img" href="#url"><img src="{% static 'images/mum111.jpg' %}"
-                                    class="img-responsive" alt="placeholder image"></a> -->
-                            <div class="people-info align-self">
-                                <h3>John wilson</h3>
-                                <p class="identity">Canada</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="testimonial-content">
-                        <div class="testimonial">
-                            <blockquote>
-                                <q></q>
-                            </blockquote>
-                            <p>Kingnze support team is also exceptional, always ensuring our website is performing optimally.</p>
-                        </div>
-                        <div class="bottom-info mt-4">
-                            <!-- <a class="comment-img" href="#url"><img src="{% static 'images/5.jpg' %}"
-                                    class="img-responsive" alt="placeholder image"></a> -->
-                            <div class="people-info align-self">
-                                <h3>Julia Sarr</h3>
-                                <p class="identity">Senegal</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="testimonial-content">
-                        <div class="testimonial">
-                            <blockquote>
-                                <q></q>
-                            </blockquote>
-                            <p>Kingnze have demonstrated commitment to assisting us in achieving our goals.</p>
-                        </div>
-                        <div class="bottom-info mt-4">
-                            <!-- <a class="comment-img" href="#url"><img src="{% static 'images/3311.jpg' %}"
-                                    class="img-responsive" alt="placeholder image"></a> -->
-                            <div class="people-info align-self">
-                                <h3>Khan wiliam</h3>
-                                <p class="identity">Germany</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="testimonial-content">
-                        <div class="testimonial">
-                            <blockquote>
-                                <q></q>
-                            </blockquote>
-                            <p> They have become our trusted digital partner. They consistently deliver great results.</p>
-                        </div>
-                        <div class="bottom-info mt-4">
-                            <!-- <a class="comment-img" href="#url"><img src="{% static 'images/5.jpg' %}"
-                                    class="img-responsive" alt="placeholder image"></a> -->
-                            <div class="people-info align-self">
-                                <h3>Jin Lee</h3>
-                                <p class="identity">China</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- //testimonials section -->
-
-<!-- stats -->
-<section class="king-stats py-lg-0 py-5" id="stats">
-    <div class="gallery-inner container py-lg-0 py-3">
-      <div class="row stats-con">
-        <div class="col-lg-3 col-6 stats_info counter_grid">
-          <span class="fa fa-users"></span>
-          <p class="counter">102</p>
-          <h4>Clients</h4>
-        </div>
-        <div class="col-lg-3 col-6 stats_info counter_grid1">
-          <span class="fa fa-laptop"></span>
-          <p class="counter">84</p>
-          <h4>Web Programs</h4>
-        </div>
-        <div class="col-lg-3 col-6 stats_info counter_grid mt-lg-0 mt-5">
-          <span class="fa fa-smile"></span>
-          <p class="counter">79</p>
-          <h4>Happy Clients</h4>
-        </div>
-        <div class="col-lg-3 col-6 stats_info counter_grid2 mt-lg-0 mt-5">
-          <span class="fa fa-trophy"></span>
-          <p class="counter">75</p>
-          <h4>Success Meets</h4>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- //stats -->
-
-
-    <!-- blog section -->
-    <div class="king-homeblock2 py-5">
-        <div class="container py-md-5 py-4">
-            <div class="row align-items-center mb-5">
-                <div class="col-md-6 section-heading">
-                    <h5 class="small-title-2">Our News & Articles</h5>
-                    <h3 class="title-style-2">Latest Blog Posts</h3>
-                </div>
-                <div class="col-md-6 section-heading mt-md-0 mt-2">
-                    <!-- <p>
-                        Sed ut perspiciatis unde omnis iste natus error sit accusantium doloremque,
-                        eaque ipsa quae ab illo inventore.Sed ut perspiciatis unde omnis iste natus error sit.
-                    </p> -->
-                </div>
-            </div>
-            <div class="row">
-                {% if world %}
-               {% for item in world %}
-                <div class="col-lg-6">
-                    <div class="bg-clr-white hover-box" style="border: none; box-shadow: none !important;">
-                        <div class="row align-items-center">
-                            <div style="padding-right: 0px; padding-left: 0px;" class="col-sm-6 position-relative ">
-                                <a href="{% url 'worldnewsdetail' item.slug %}">
-                                    <img style="height: 10.5rem;" class="img-fluid d-block"  src="{{item.leadimg.url}}" alt="image">
-                                </a>
-                            </div>
-                            <div class="col-sm-6">
-                                <br>
-                                <a href="{% url 'worldnews' %}">
-                                    <span style="color: rgb(80, 45, 209);" class="label-style label-style-2">World</span>
-                                </a>
-                                <div class="card-body blog-details align-self pl-sm-0">
-                                    <a href="{% url 'worldnewsdetail' item.slug %}" class="blog-desc">{{item.title}}
-                                    </a>
-                                    <!-- <p>{{ item.body | truncatechars:90 | safe }}</p> -->
-                                    <div class="d-flex align-items-center justify-content-between mt-lg-4 mt-0">
-                                        <h5 class="text-blog-e" >{{ item.date_posted }}</h5>
-                                        <a href="#blog" class="blog-icon-e"><i class="fas fa-plus"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <br>
-                    </div>
-                   
-                </div>
-                {% endfor %}
-                {% endif %}
-               
-               <br>
-           </div>
-
-           <div class="row">
-            {% if africa %}
-            {% for item in africa %}
-            <div class="col-lg-6">
-                <div class="bg-clr-white hover-box" style="border: none; box-shadow: none !important;">
-                    <div class="row align-items-center">
-                        <div style="padding-right: 0px; padding-left: 0px;"   class="col-sm-6 position-relative">
-                            <a href="{% url 'africanewsdetail' item.slug %}">
-                                <img style="height: 10.5rem;"  class="img-fluid d-block"  src="{{item.leadimg.url}}" alt="image">
-                            </a>
-                        </div>
-                        <div class="col-sm-6">
-                            <br>
-                            <a href="{% url 'africanews' %}">
-                                <span style="color: rgb(80, 45, 209);" class="label-style label-style-2">Africa</span>
-                            </a>
-                            <div class="card-body blog-details align-self pl-sm-0">
-                                <a href="{% url 'africanewsdetail' item.slug %}"  class="blog-desc">{{ item.title  }}
-                                </a>
-                                <!-- <p>{{ item.body | truncatechars:90 | safe }}</p> -->
-                                <div class="d-flex align-items-center justify-content-between mt-lg-4 mt-0">
-                                    <h5 class="text-blog-e" >{{ item.date_posted }}</h5>
-                                    <a href="#blog" class="blog-icon-e"><i class="fas fa-plus"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-                </div>
-               
-            </div>
-            {% endfor %}
-            {% endif %}
-           
-           <br>
-       </div>
-
-       <div class="row">
-        {% if local %}
-            {% for item in local %}
-        <div class="col-lg-6">
-            <div class="bg-clr-white hover-box" style="border: none; box-shadow: none !important;">
-                <div class="row align-items-center">
-                    <div style="padding-right: 0px; padding-left: 0px;"  class="col-sm-6 position-relative">
-                        <a href="{% url 'localnewsdetail' item.slug %}">
-                            <img style="height: 10.5rem;"  class="img-fluid d-block"  src="{{item.leadimg.url}}" alt="image">
-                        </a>
-                    </div>
-                    <div class="col-sm-6">
-                        <br>
-                        <a href="{% url 'localnews' %}">
-                            <span style="color: rgb(80, 45, 209);" class="label-style label-style-2">Local</span>
-                        </a>
-                        <div class="card-body blog-details align-self pl-sm-0">
-                            <a href="{% url 'localnewsdetail' item.slug %}"  class="blog-desc">{{ item.title  }}
-                            </a>
-                            <!-- <p>{{ item.body | truncatechars:90 | safe }}</p> -->
-                            <div class="d-flex align-items-center justify-content-between mt-lg-4 mt-0">
-                                <h5 class="text-blog-e">{{ item.date_posted }}</h5>
-                                <a href="#blog" class="blog-icon-e"><i class="fas fa-plus"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <br>
-            </div>
-           
-         </div>
-        {% endfor %}
-        {% endif %}
-       
-       <br>
-       </div>
-       <div class="row">
-        {% if sports %}
-        {% for item in sports %}
-        <div class="col-lg-6">
-            <div class="bg-clr-white hover-box" style="border: none; box-shadow: none !important;">
-                <div class="row align-items-center">
-                    <div style="padding-right: 0px; padding-left: 0px;"  class="col-sm-6 position-relative">
-                        <a href="{% url 'sportsnewsdetail' item.slug %}">
-                            <img style="height: 10.5rem;"  class="img-fluid d-block" src="{{item.leadimg.url}}" alt="image">
-                        </a>
-                    </div>
-                    <div class="col-sm-6">
-                        <br>
-                        <a href="{% url 'sportsnews' %}">
-                            <span style="color: rgb(80, 45, 209);" class="label-style label-style-2">Sports</span>
-                        </a>
-                        <div class="card-body blog-details align-self pl-sm-0">
-                            <a href="{% url 'sportsnewsdetail' item.slug %}"  class="blog-desc">{{ item.title  }}
-                            </a>
-                            <!-- <p>{{ item.body | truncatechars:90 | safe }}</p> -->
-                            <div class="d-flex align-items-center justify-content-between mt-lg-4 mt-0">
-                                <h5 class="text-blog-e" >{{ item.date_posted }}</h5>
-                                <a href="#blog" class="blog-icon-e"><i class="fas fa-plus"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <br>
-            </div>
-           
-        </div>
-        {% endfor %}
-        {% endif %}
-       
-       <br>
-   </div>
-
-   <div class="row">
-            {% if enternews %}
-            {% for item in enternews %}
-    <div class="col-lg-6">
-        <div class="bg-clr-white hover-box" style="border: none; box-shadow: none !important;">
-            <div class="row align-items-center">
-                <div style="padding-right: 0px; padding-left: 0px;"  class="col-sm-6 position-relative">
-                    <a href="{% url 'entertainmentdetail' item.slug %}">
-                        <img style="height: 10.5rem;"  class="img-fluid d-block" src="{{item.leadimg.url}}" alt="image">
-                    </a>
-                </div>
-                <div class="col-sm-6">
-                    <br>
-                    <a href="{% url 'entertainment' %}">
-                        <span style="color: rgb(80, 45, 209);" class="label-style label-style-2">Entertainment</span>
-                    </a>
-                    <div class="card-body blog-details align-self pl-sm-0">
-                        <a href="{% url 'entertainmentdetail' item.slug %}"  class="blog-desc">{{ item.title  }}
-                        </a>
-                        <!-- <p>{{ item.body | truncatechars:90 | safe }}</p> -->
-                        <div class="d-flex align-items-center justify-content-between mt-lg-4 mt-0">
-                            <h5 class="text-blog-e" >{{ item.date_posted }}</h5>
-                            <a href="#blog" class="blog-icon-e"><i class="fas fa-plus"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <br>
-        </div>
-       
-    </div>
-    {% endfor %}
-    {% endif %}
-   
-   <br>
-</div>
-        </div>
-    </div>
-    <!-- //blog section -->
-
-    <section style=" margin-top: -10rem;" id="home" class="king-banner py-5" sty>
-        <div class="container pt-5 pb-md-4">
-            <div class="row align-items-center">
-                <div class="col-md-6 banner-left pt-md-0 pt-5">
-                    <h3 class="mb-sm-4 mb-3 title"><br><span><span
-                                class="text-js">Sit back relax and enjoy what we bring...</span></span></h3>
-                    <div class="mt-md-5 mt-4 mb-lg-0 mb-4">
-                        <!-- <a class="btn button-style" href="about.html">Get Started<i class="fa fa-angle-double-right"
-                                aria-hidden="true"></i></a> -->
-                    </div>
-                </div>
-                <div class="col-md-6 banner-right mt-md-0 mt-4">
-                    <img class="img-fluid" src="{% static 'images/b1.jpg' %}" alt=" ">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="container">
-        <marquee style="background-color: #ffc845;  color: black; height: 2rem; font-size: large; font-weight: 500;" behavior="" direction="">We are a solution driven team passionate about your business success, executing every project with Strategy, Tenacity and Excellent delivery in mind.</marquee>
-    </div>
-<br> 
 
 {% endblock content %}

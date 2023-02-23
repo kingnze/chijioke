@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load humanize %}
+
+{% block title %}
+My Search Results
+{% endblock title %}
+
+{% block content %}
+<br><br><br>
+<br>
+<section >
+    <div class="container">
+        <div class="row">
+            {% if results %}
+            {% for item in results %}
+             <div class="maghny-gd-1 col-md-3">
+                <div class="maghny-grid mb-3">
+                  <a href="{{ object.get_absolute_url }}"><img class="img-fluid" src="{{item.leadimg.url}}" alt=""></a>
+                </div>
+                <h5><a href="{{ object.get_absolute_url }}">{{item.title}}</a></h5>                <div class="sub-meta">
+                  <span>
+                    <i class="far fa-clock"></i> {{ item.date_posted }}</span>
+                </div>
+              </div>
+              {% endfor %}
+              {% else %}
+              <p>
+                  Your keywords have no matching result
+              </p>
+              {% endif %}
+        </div>
+    </div>
+
+
+</section>
+
+<br><br>
+{% endblock content %}
+

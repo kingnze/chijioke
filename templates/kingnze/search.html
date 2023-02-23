@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load humanize %}
+
+{% block title %}
+My Search Results
+{% endblock title %}
+
+{% block content %}
+<br><br><br>
+<br>
+<!-- <section >
+    <div class="container">
+        <div class="row">
+            {% if results %}
+            {% for item in results %}
+             <div class="maghny-gd-1 col-md-3">
+                <div class="maghny-grid mb-3">
+                  <a href="{{ object.get_absolute_url }}"><img class="img-fluid" src="{{item.leadimg.url}}" alt=""></a>
+                </div>
+                <h5><a href="{{ object.get_absolute_url }}">{{item.title}}</a></h5>                <div class="sub-meta">
+                  <span>
+                    <i class="far fa-clock"></i> {{ item.date_posted }}</span>
+                </div>
+              </div>
+              {% endfor %}
+              {% else %}
+              <p>
+                  Your keywords have no matching result
+              </p>
+              {% endif %}
+        </div>
+    </div>
+
+
+</section> -->
+<h1>Search Modems</h1>
+
+<form action="{% url 'search' %}" method="get">
+    <input type="text" name="q" value="{{ request.GET.q }}">
+    <button type="submit">Search</button>
+</form>
+
+<hr>
+    <h1>Search Results for "{{ query }}"</h1>
+
+    {% if results1 %}
+        <h2>Results for Model1:</h2>
+        <ul>
+        {% for item in results1 %}
+            <li>{{ item.title }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if results2 %}
+        <h2>Results for Model2:</h2>
+        <ul>
+        {% for item in results2 %}
+            <li>{{ item.title }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if results3 %}
+        <h2>Results for Model3:</h2>
+        <ul>
+        {% for item in results3 %}
+            <li>{{ item.title }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if not results1 and not results2 and not results3 %}
+        <p>No results found.</p>
+    {% endif %}
+
+<br><br>
+{% endblock content %}
+

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import stportnews
+from .models import stportnews,stportnewsComment
 
 # Register your models here.
 
@@ -12,3 +12,4 @@ class stportnewsAdmin(admin.ModelAdmin):
 
 
 admin.site.register(stportnews, stportnewsAdmin)
+admin.site.register(stportnewsComment)

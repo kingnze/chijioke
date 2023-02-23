@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 class stportnews(models.Model):
     title = models.CharField(max_length=550)
     slug = models.SlugField(max_length=550,null=True,blank=True)
-    published = models.BooleanField(default=False,null=True,blank=True)
+    published = models.BooleanField(default=True,null=True,blank=True)
     flag = models.BooleanField(default=False,null=True,blank=True)
     date_posted = models.DateTimeField(default=datetime.now())
     leadimg = models.ImageField(default='myleadimg.jpg')
@@ -28,3 +28,19 @@ class stportnews(models.Model):
         managed = True
         verbose_name = 'stportnews'
         verbose_name_plural = 'stportnews'
+
+
+class stportnewsComment(models.Model):
+    body = models.TextField()
+    stportnewsusercomment = models.ForeignKey(User,on_delete=models.DO_NOTHING)  
+    post = models.ForeignKey(stportnews,on_delete=models.CASCADE)
+    date_posted = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.body
+
+    class Meta:
+        db_table = 'stportnewsComments'
+        managed = True
+        verbose_name = 'stportnewsComment'
+        verbose_name_plural = 'stportnewsComments'  

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import africanews
+from .models import africanews,africanewsComment
 # Register your models here.
 
 class africanewsAdmin(admin.ModelAdmin):
@@ -9,3 +9,4 @@ class africanewsAdmin(admin.ModelAdmin):
     list_per_page = 10
 
 admin.site.register(africanews, africanewsAdmin)
+admin.site.register(africanewsComment)

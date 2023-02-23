@@ -1,4 +1,4 @@
-#header {
+/* #header {
     height: 58px;
     background: black;
     color: white;
@@ -7,7 +7,6 @@
 #branding h1 {
     color: white;
     font-weight: bold;
-    /* margin-bottom: 5px; */
 }
 
 a:link,
@@ -42,4 +41,4 @@ div.breadcrumbs {
     height: 9px;
     margin-top: -10px;
   }
-
+ */

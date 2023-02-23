@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+
+{% block title %}
+Politics
+{% endblock title %}
+
+
+
+{% block content %}
+ <div style="background-color: var(--bg-grey); margin-top: 3rem;" class="service-section py-5">
+    <div class="container py-md-5 py-4">
+      <br>
+			<ul  class="breadcrumbs-custom-path">
+				<li><a style="color: var(--heading-color);" href="{% url 'index' %}">Back To Home</a></li>
+				</ul>
+				<br><br>
+        <div class="row justify-content-center">
+            {% if politics %}
+            {% for item in politics %}
+            <div class="maghny-gd-1 col-md-3">
+              <div class="maghny-grid mb-3">
+                <a href="{% url 'politicsnewsdetail' item.slug %}"><img class="img-fluid" src="{{item.leadimg.url}}" alt=""></a>
+              </div>
+              <h5><a href="{% url 'politicsnewsdetail' item.slug %}">{{item.title}}</a></h5>
+              <div class="sub-meta">
+                <span>
+                  <i class="far fa-clock"></i> {{ item.date_posted }}</span>
+              </div>
+            </div>
+            
+            {% endfor %}
+            {% endif %}
+            <div class="row">
+              <div class="col-md-12 mt-5 mb-5">
+                {% if politics.has_other_pages %}
+                  <ul class="pagination">
+                    {% if politics.has_previous %}
+                        <li class="page-item">
+                          <a href="?page={{politics.previous_page_number}}" class="page-link">&laquo;
+                          </a>
+                        </li>
+                        {% else %}
+                        <!-- <li class="page-link disabled">
+                          <a class="page-link">&laquo;</a>
+                        </li> -->
+                    {% endif %}
+                    {% for i in politics.paginator.page_range %}
+                      {% if politics.number == i %}
+                        <li class="page-item active">
+                          <a class="page-link">{{i}}</a>
+                        </li>
+                     {% else %}
+                     <li class="page-item">
+                       <a href="?page={{i}}" class="page-link">{{i}}</a>
+                     </li>
+                   {% endif %}
+                  {% endfor %} 
+                  {% if politics.has_next %}
+                      <li class="page-item">
+                        <a href="?page={{politics.next_page_number}}" class="page-link">&raquo;
+                        </a>
+                      </li>
+                    {% else %}
+                      <!-- <li class="page-link disabled">
+                        <a class="page-link">&raquo;</a>
+                      </li> -->
+                  {% endif %}
+                </ul>                   
+              {% endif %}
+              </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+</div>
+<!-- //services section -->
+<br>
+<br>
+
+
+
+
+
+{% endblock content %}
